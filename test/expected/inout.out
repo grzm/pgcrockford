@@ -24,6 +24,14 @@ ERROR:  invalid input syntax for base32 value: "+0"
 LINE 1: SELECT '+0'::base32.base32uint2;
                ^
 DETAIL:  symbol "+" is invalid
+SELECT 65535::base32.base32uint2;
+ base32uint2 
+-------------
+ 1ZZZ
+(1 row)
+
+SELECT 65536::base32.base32uint2;
+ERROR:  base32uint2 out of range
 SELECT b32
   FROM (VALUES ('0'::base32.base32uint4),
                ('-0-'),
@@ -37,6 +45,14 @@ SELECT b32
  1
 (4 rows)
 
+SELECT 4294967295::base32.base32uint4;
+ base32uint4 
+-------------
+ 3ZZZZZZ
+(1 row)
+
+SELECT 4294967296::base32.base32uint4;
+ERROR:  base32uint4 out of range
 SELECT '4000000'::base32.base32uint4;
 ERROR:  value "4000000" is out of range for type base32int4
 LINE 1: SELECT '4000000'::base32.base32uint4;
