@@ -70,8 +70,8 @@ SELECT b32
   FROM (VALUES ('0'::base32.base32uint8),
                ('-0-'),
                ('FZZZZZZZZZZZZ')) AS _ (b32);
-      b32   
---------------
+      b32      
+---------------
  0
  0
  FZZZZZZZZZZZZ

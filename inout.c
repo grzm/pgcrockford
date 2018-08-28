@@ -206,7 +206,7 @@ base32_utoa(uint64 value)
         value /= BASE32_RADIX;
     } while (ptr > buf && value);
 
-    return ptr;
+    return pstrdup(ptr);
 }
 
 
@@ -225,7 +225,7 @@ PG_FUNCTION_INFO_V1(base32uint2out);
 Datum
 base32uint2out(PG_FUNCTION_ARGS)
 {
-    PG_RETURN_CSTRING(pstrdup(base32_utoa((uint64)PG_GETARG_UINT16(0))));
+    PG_RETURN_CSTRING(base32_utoa((uint64)PG_GETARG_UINT16(0)));
 }
 
 
@@ -244,7 +244,7 @@ PG_FUNCTION_INFO_V1(base32uint4out);
 Datum
 base32uint4out(PG_FUNCTION_ARGS)
 {
-    PG_RETURN_CSTRING(pstrdup(base32_utoa((uint64)PG_GETARG_UINT32(0))));
+    PG_RETURN_CSTRING(base32_utoa((uint64)PG_GETARG_UINT32(0)));
 }
 
 
@@ -263,5 +263,5 @@ PG_FUNCTION_INFO_V1(base32uint8out);
 Datum
 base32uint8out(PG_FUNCTION_ARGS)
 {
-    PG_RETURN_CSTRING(pstrdup(base32_utoa(PG_GETARG_UINT64(0))));
+    PG_RETURN_CSTRING(base32_utoa(PG_GETARG_UINT64(0)));
 }

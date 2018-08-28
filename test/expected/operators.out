@@ -148,18 +148,16 @@ ERROR:  invalid input syntax for base32 value: "55 x"
 LINE 1: SELECT '55 x'::base32uint8;
                ^
 DETAIL:  symbol " " is invalid
-SELECT '7ZZZZZZZZZZZZ'::base32uint8;
- base32uint8 
--------------
- O\x05\x01
+SELECT 'FZZZZZZZZZZZZ'::base32uint8;
+  base32uint8  
+---------------
+ FZZZZZZZZZZZZ
 (1 row)
 
-SELECT '8000000000000'::base32uint8;
- base32uint8 
--------------
- O\x05\x01
-(1 row)
-
+SELECT 'G000000000000'::base32uint8;
+ERROR:  value "G000000000000" is out of range for type base32int8
+LINE 1: SELECT 'G000000000000'::base32uint8;
+               ^
 CREATE TABLE test_base32uint8 (a base32uint8);
 INSERT INTO test_base32uint8 VALUES (1), (2), (3), (4), (5);
 SELECT a FROM test_base32uint8;
@@ -875,12 +873,8 @@ SELECT '5'::base32uint2 + '2'::base32uint8;
  7
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT '1ZZZ'::base32uint2 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -2207,12 +2201,8 @@ SELECT '5'::base32uint4 + '2'::base32uint8;
  7
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT '3ZZZZZZ'::base32uint4 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -3181,12 +3171,8 @@ SELECT '5'::base32uint8 + '2'::base32uint2;
  7
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '1ZZZ'::base32uint2;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '1ZZZ'::base32uint2;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint2);
   pg_typeof  
 -------------
@@ -3365,12 +3351,8 @@ SELECT '5'::base32uint8 + '2'::base32uint4;
  7
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '3ZZZZZZ'::base32uint4;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '3ZZZZZZ'::base32uint4;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -3549,12 +3531,8 @@ SELECT '5'::base32uint8 + '2'::base32uint8;
  7
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -3733,12 +3711,8 @@ SELECT '5'::base32uint8 + '-2'::int2;
  3
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '32767'::int2;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '32767'::int2;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int2);
   pg_typeof  
 -------------
@@ -3937,12 +3911,8 @@ SELECT '5'::base32uint8 + '-2'::int4;
  3
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '2147483647'::int4;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '2147483647'::int4;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int4);
   pg_typeof  
 -------------
@@ -4141,12 +4111,8 @@ SELECT '5'::base32uint8 + '-2'::int8;
  3
 (1 row)
 
-SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '9223372036854775807'::int8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '9223372036854775807'::int8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int8);
   pg_typeof  
 -------------
@@ -4923,12 +4889,8 @@ SELECT '-3'::int2 + '4'::base32uint8;
 
 SELECT '-5'::int2 + '2'::base32uint8;
 ERROR:  integer out of range
-SELECT '32767'::int2 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT '32767'::int2 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::int2 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -5717,12 +5679,8 @@ SELECT '-3'::int4 + '4'::base32uint8;
 
 SELECT '-5'::int4 + '2'::base32uint8;
 ERROR:  integer out of range
-SELECT '2147483647'::int4 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT '2147483647'::int4 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::int4 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -6533,12 +6491,8 @@ SELECT '-3'::int8 + '4'::base32uint8;
 
 SELECT '-5'::int8 + '2'::base32uint8;
 ERROR:  integer out of range
-SELECT '9223372036854775807'::int8 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column?  
------------
- O\x05\x01
-(1 row)
-
+SELECT '9223372036854775807'::int8 + 'FZZZZZZZZZZZZ'::base32uint8;
+ERROR:  integer out of range
 SELECT pg_typeof('1'::int8 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -6914,9 +6868,9 @@ SELECT '5'::base32uint8 # '4'::base32uint8;
 (1 row)
 
 SELECT ~ '6'::base32uint8;
- ?column?  
------------
- O\x05\x01
+   ?column?    
+---------------
+ FZZZZZZZZZZZS
 (1 row)
 
 SELECT '6'::base32uint8 << 1;
