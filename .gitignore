@@ -4,3 +4,6 @@ results
 local.env
 regression.*
 *.o
+operators.c
+operators.sql
+test/sql/operators.sql
