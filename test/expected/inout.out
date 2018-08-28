@@ -1,15 +1,17 @@
 SELECT b32
   FROM (VALUES ('0'::base32.base32uint2),
                ('-0-'),
-               ('1ZZZ'),
-               ('-1')) AS _ (b32);
+               ('-1'),
+               ('-ololi-'),
+               ('1ZZZ')) AS _ (b32);
  b32  
 ------
  0
  0
- 1ZZZ
  1
-(4 rows)
+ 1011
+ 1ZZZ
+(5 rows)
 
 SELECT '2000'::base32.base32uint2;
 ERROR:  value "2000" is out of range for type base32int2
@@ -24,6 +26,16 @@ ERROR:  invalid input syntax for base32 value: "+0"
 LINE 1: SELECT '+0'::base32.base32uint2;
                ^
 DETAIL:  symbol "+" is invalid
+SELECT 'U'::base32.base32uint2;
+ERROR:  invalid input syntax for base32 value: "U"
+LINE 1: SELECT 'U'::base32.base32uint2;
+               ^
+DETAIL:  symbol "U" is invalid
+SELECT 'u'::base32.base32uint2;
+ERROR:  invalid input syntax for base32 value: "u"
+LINE 1: SELECT 'u'::base32.base32uint2;
+               ^
+DETAIL:  symbol "u" is invalid
 SELECT 65535::base32.base32uint2;
  base32uint2 
 -------------
@@ -35,15 +47,17 @@ ERROR:  base32uint2 out of range
 SELECT b32
   FROM (VALUES ('0'::base32.base32uint4),
                ('-0-'),
-               ('3ZZZZZZ'),
-               ('-1')) AS _ (b32);
+               ('-1'),
+               ('-ololi-'),
+               ('3ZZZZZZ')) AS _ (b32);
    b32   
 ---------
  0
  0
- 3ZZZZZZ
  1
-(4 rows)
+ 1011
+ 3ZZZZZZ
+(5 rows)
 
 SELECT 4294967295::base32.base32uint4;
  base32uint4 
@@ -69,13 +83,17 @@ DETAIL:  symbol "+" is invalid
 SELECT b32
   FROM (VALUES ('0'::base32.base32uint8),
                ('-0-'),
+               ('-1'),
+               ('-ololi-'),
                ('FZZZZZZZZZZZZ')) AS _ (b32);
       b32      
 ---------------
  0
  0
+ 1
+ 1011
  FZZZZZZZZZZZZ
-(3 rows)
+(5 rows)
 
 SELECT 'G000000000000'::base32.base32uint8;
 ERROR:  value "G000000000000" is out of range for type base32int8
