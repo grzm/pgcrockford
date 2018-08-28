@@ -13,6 +13,10 @@
 #define BAD_CHAR -1
 #define IGNORE_CHAR -2
 
+#define MAX_BASE32_UINT16 65535ULL
+#define MAX_BASE32_UINT32 4294967295ULL
+#define MAX_BASE32_UINT64 18446744073709551615ULL
+
 static const char
 base32_values[] = {
     // 0..47
@@ -143,7 +147,7 @@ base32_atou(const char *s, int size)
         if (IGNORE_CHAR != c) {
             saw_digit = true;
             if (check_uint64
-                && ((ULLONG_MAX - c)/BASE32_RADIX < result)
+                && ((MAX_BASE32_UINT64 - c)/BASE32_RADIX < result)
                 )
             {
                 out_of_range = true;
@@ -164,24 +168,15 @@ base32_atou(const char *s, int size)
     switch (size)
     {
         case sizeof(uint64):
-            if (out_of_range
-                || errno == ERANGE
-#if defined(HAVE_LONG_INT_64)
-                || result > ULONG_MAX
-#endif
-                )
+            if (errno == ERANGE || out_of_range)
                 out_of_range = true;
             break;
         case sizeof(uint32):
-            if (errno == ERANGE
-#if defined(HAVE_LONG_INT_64)
-                || result > UINT_MAX
-#endif
-                )
+            if (errno == ERANGE || result > MAX_BASE32_UINT32)
                 out_of_range = true;
             break;
         case sizeof(uint16):
-            if (errno == ERANGE || result > USHRT_MAX)
+            if (errno == ERANGE || result > MAX_BASE32_UINT16)
                 out_of_range = true;
             break;
         default:
