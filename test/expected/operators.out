@@ -151,13 +151,13 @@ DETAIL:  symbol " " is invalid
 SELECT '7ZZZZZZZZZZZZ'::base32uint8;
  base32uint8 
 -------------
- \x02\x01
+ O\x05\x01
 (1 row)
 
 SELECT '8000000000000'::base32uint8;
  base32uint8 
 -------------
- \x02\x01
+ O\x05\x01
 (1 row)
 
 CREATE TABLE test_base32uint8 (a base32uint8);
@@ -876,9 +876,9 @@ SELECT '5'::base32uint2 + '2'::base32uint8;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint2 - '1'::base32uint8);
@@ -2208,9 +2208,9 @@ SELECT '5'::base32uint4 + '2'::base32uint8;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint4 - '1'::base32uint8);
@@ -3182,9 +3182,9 @@ SELECT '5'::base32uint8 + '2'::base32uint2;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '1ZZZ'::base32uint2;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint2);
@@ -3366,9 +3366,9 @@ SELECT '5'::base32uint8 + '2'::base32uint4;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '3ZZZZZZ'::base32uint4;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint4);
@@ -3550,9 +3550,9 @@ SELECT '5'::base32uint8 + '2'::base32uint8;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint8);
@@ -3734,9 +3734,9 @@ SELECT '5'::base32uint8 + '-2'::int2;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '32767'::int2;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::int2);
@@ -3938,9 +3938,9 @@ SELECT '5'::base32uint8 + '-2'::int4;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '2147483647'::int4;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::int4);
@@ -4142,9 +4142,9 @@ SELECT '5'::base32uint8 + '-2'::int8;
 (1 row)
 
 SELECT '7ZZZZZZZZZZZZ'::base32uint8 + '9223372036854775807'::int8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::base32uint8 - '1'::int8);
@@ -4186,11 +4186,9 @@ SELECT CAST('5'::base32uint8 AS int8);
 (1 row)
 
 SELECT CAST('10000000000000000000'::base32uint8 AS int8);
- int8 
-------
-    0
-(1 row)
-
+ERROR:  value "10000000000000000000" is out of range for type base32int8
+LINE 1: SELECT CAST('10000000000000000000'::base32uint8 AS int8);
+                    ^
 SELECT '2'::int2 < 5;
  ?column? 
 ----------
@@ -4926,9 +4924,9 @@ SELECT '-3'::int2 + '4'::base32uint8;
 SELECT '-5'::int2 + '2'::base32uint8;
 ERROR:  integer out of range
 SELECT '32767'::int2 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::int2 - '1'::base32uint8);
@@ -5720,9 +5718,9 @@ SELECT '-3'::int4 + '4'::base32uint8;
 SELECT '-5'::int4 + '2'::base32uint8;
 ERROR:  integer out of range
 SELECT '2147483647'::int4 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::int4 - '1'::base32uint8);
@@ -6536,9 +6534,9 @@ SELECT '-3'::int8 + '4'::base32uint8;
 SELECT '-5'::int8 + '2'::base32uint8;
 ERROR:  integer out of range
 SELECT '9223372036854775807'::int8 + '7ZZZZZZZZZZZZ'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT pg_typeof('1'::int8 - '1'::base32uint8);
@@ -6916,9 +6914,9 @@ SELECT '5'::base32uint8 # '4'::base32uint8;
 (1 row)
 
 SELECT ~ '6'::base32uint8;
- ?column? 
-----------
- \x02\x01
+ ?column?  
+-----------
+ O\x05\x01
 (1 row)
 
 SELECT '6'::base32uint8 << 1;
