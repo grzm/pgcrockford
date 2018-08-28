@@ -1,0 +1,76 @@
+SELECT b32
+  FROM (VALUES ('0'::base32.base32uint2),
+               ('-0-'),
+               ('1ZZZ'),
+               ('-1')) AS _ (b32);
+ b32  
+------
+ 0
+ 0
+ 1ZZZ
+ 1
+(4 rows)
+
+SELECT '2000'::base32.base32uint2;
+ERROR:  value "2000" is out of range for type base32int2
+LINE 1: SELECT '2000'::base32.base32uint2;
+               ^
+SELECT '-'::base32.base32uint2;
+ERROR:  invalid input syntax for base32 value: "-"
+LINE 1: SELECT '-'::base32.base32uint2;
+               ^
+SELECT '+0'::base32.base32uint2;
+ERROR:  invalid input syntax for base32 value: "+0"
+LINE 1: SELECT '+0'::base32.base32uint2;
+               ^
+DETAIL:  symbol "+" is invalid
+SELECT b32
+  FROM (VALUES ('0'::base32.base32uint4),
+               ('-0-'),
+               ('3ZZZZZZ'),
+               ('-1')) AS _ (b32);
+   b32   
+---------
+ 0
+ 0
+ 3ZZZZZZ
+ 1
+(4 rows)
+
+SELECT '4000000'::base32.base32uint4;
+ERROR:  value "4000000" is out of range for type base32int4
+LINE 1: SELECT '4000000'::base32.base32uint4;
+               ^
+SELECT '-'::base32.base32uint4;
+ERROR:  invalid input syntax for base32 value: "-"
+LINE 1: SELECT '-'::base32.base32uint4;
+               ^
+SELECT '+0'::base32.base32uint4;
+ERROR:  invalid input syntax for base32 value: "+0"
+LINE 1: SELECT '+0'::base32.base32uint4;
+               ^
+DETAIL:  symbol "+" is invalid
+SELECT b32
+  FROM (VALUES ('0'::base32.base32uint8),
+               ('-0-'),
+               ('FZZZZZZZZZZZZ')) AS _ (b32);
+      b32   
+--------------
+ 0
+ 0
+ FZZZZZZZZZZZZ
+(3 rows)
+
+SELECT 'G000000000000'::base32.base32uint8;
+ERROR:  value "G000000000000" is out of range for type base32int8
+LINE 1: SELECT 'G000000000000'::base32.base32uint8;
+               ^
+SELECT '-'::base32.base32uint8;
+ERROR:  invalid input syntax for base32 value: "-"
+LINE 1: SELECT '-'::base32.base32uint8;
+               ^
+SELECT '+0'::base32.base32uint8;
+ERROR:  invalid input syntax for base32 value: "+0"
+LINE 1: SELECT '+0'::base32.base32uint8;
+               ^
+DETAIL:  symbol "+" is invalid

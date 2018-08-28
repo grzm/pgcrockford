@@ -1,0 +1,31 @@
+-- reference
+SELECT hashint4(55);
+  hashint4  
+------------
+ -305105437
+(1 row)
+
+SELECT hashoid(55);
+  hashoid   
+------------
+ -305105437
+(1 row)
+
+SELECT base32.hashbase32uint2('1Q'::base32.base32uint2);
+ hashbase32uint2 
+-----------------
+      -305105437
+(1 row)
+
+SELECT base32.hashbase32uint4('1Q'::base32.base32uint4);
+ hashbase32uint4 
+-----------------
+      -305105437
+(1 row)
+
+SELECT base32.hashbase32uint8('1Q'::base32.base32uint8);
+ hashbase32uint8 
+-----------------
+      -305105437
+(1 row)
+
