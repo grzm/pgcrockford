@@ -524,7 +524,7 @@ SELECT '5'::base32uint2 + '2'::base32uint2;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::base32uint2);
   pg_typeof  
 -------------
@@ -538,7 +538,7 @@ SELECT '1'::base32uint2 - '1'::base32uint2;
 (1 row)
 
 SELECT '3'::base32uint2 - '4'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '5'::base32uint2 - '2'::base32uint2;
  ?column? 
 ----------
@@ -696,7 +696,7 @@ SELECT '5'::base32uint2 + '2'::base32uint4;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -710,7 +710,7 @@ SELECT '1'::base32uint2 - '1'::base32uint4;
 (1 row)
 
 SELECT '3'::base32uint2 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint2 - '2'::base32uint4;
  ?column? 
 ----------
@@ -874,7 +874,7 @@ SELECT '5'::base32uint2 + '2'::base32uint8;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -888,7 +888,7 @@ SELECT '1'::base32uint2 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::base32uint2 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint2 - '2'::base32uint8;
  ?column? 
 ----------
@@ -1052,7 +1052,7 @@ SELECT '5'::base32uint2 + '2'::int2;
 (1 row)
 
 SELECT '3'::base32uint2 + '-4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '5'::base32uint2 + '-2'::int2;
  ?column? 
 ----------
@@ -1060,7 +1060,7 @@ SELECT '5'::base32uint2 + '-2'::int2;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '32767'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::int2);
   pg_typeof  
 -------------
@@ -1074,7 +1074,7 @@ SELECT '1'::base32uint2 - '1'::int2;
 (1 row)
 
 SELECT '3'::base32uint2 - '4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '5'::base32uint2 - '2'::int2;
  ?column? 
 ----------
@@ -1266,7 +1266,7 @@ SELECT '5'::base32uint2 + '-2'::int4;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '2147483647'::int4;
-ERROR:  integer out of range
+ERROR:  int4 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::int4);
  pg_typeof 
 -----------
@@ -1472,7 +1472,7 @@ SELECT '5'::base32uint2 + '-2'::int8;
 (1 row)
 
 SELECT '1ZZZ'::base32uint2 + '9223372036854775807'::int8;
-ERROR:  integer out of range
+ERROR:  int8 out of range
 SELECT pg_typeof('1'::base32uint2 - '1'::int8);
  pg_typeof 
 -----------
@@ -1684,9 +1684,9 @@ SELECT 5 + '2'::base32uint4;
 (1 row)
 
 SELECT '2'::base32uint4 - 5;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT 2 - '5'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 - 2;
  ?column? 
 ----------
@@ -1850,7 +1850,7 @@ SELECT '5'::base32uint4 + '2'::base32uint2;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::base32uint2);
   pg_typeof  
 -------------
@@ -1864,7 +1864,7 @@ SELECT '1'::base32uint4 - '1'::base32uint2;
 (1 row)
 
 SELECT '3'::base32uint4 - '4'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 - '2'::base32uint2;
  ?column? 
 ----------
@@ -2030,7 +2030,7 @@ SELECT '5'::base32uint4 + '2'::base32uint4;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -2044,7 +2044,7 @@ SELECT '1'::base32uint4 - '1'::base32uint4;
 (1 row)
 
 SELECT '3'::base32uint4 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 - '2'::base32uint4;
  ?column? 
 ----------
@@ -2202,7 +2202,7 @@ SELECT '5'::base32uint4 + '2'::base32uint8;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -2216,7 +2216,7 @@ SELECT '1'::base32uint4 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::base32uint4 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint4 - '2'::base32uint8;
  ?column? 
 ----------
@@ -2380,7 +2380,7 @@ SELECT '5'::base32uint4 + '2'::int2;
 (1 row)
 
 SELECT '3'::base32uint4 + '-4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 + '-2'::int2;
  ?column? 
 ----------
@@ -2388,7 +2388,7 @@ SELECT '5'::base32uint4 + '-2'::int2;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '32767'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::int2);
   pg_typeof  
 -------------
@@ -2402,7 +2402,7 @@ SELECT '1'::base32uint4 - '1'::int2;
 (1 row)
 
 SELECT '3'::base32uint4 - '4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 - '2'::int2;
  ?column? 
 ----------
@@ -2580,7 +2580,7 @@ SELECT '5'::base32uint4 + '2'::int4;
 (1 row)
 
 SELECT '3'::base32uint4 + '-4'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 + '-2'::int4;
  ?column? 
 ----------
@@ -2588,7 +2588,7 @@ SELECT '5'::base32uint4 + '-2'::int4;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '2147483647'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::int4);
   pg_typeof  
 -------------
@@ -2602,7 +2602,7 @@ SELECT '1'::base32uint4 - '1'::int4;
 (1 row)
 
 SELECT '3'::base32uint4 - '4'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::base32uint4 - '2'::int4;
  ?column? 
 ----------
@@ -2794,7 +2794,7 @@ SELECT '5'::base32uint4 + '-2'::int8;
 (1 row)
 
 SELECT '3ZZZZZZ'::base32uint4 + '9223372036854775807'::int8;
-ERROR:  integer out of range
+ERROR:  int8 out of range
 SELECT pg_typeof('1'::base32uint4 - '1'::int8);
  pg_typeof 
 -----------
@@ -3006,9 +3006,9 @@ SELECT 5 + '2'::base32uint8;
 (1 row)
 
 SELECT '2'::base32uint8 - 5;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT 2 - '5'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - 2;
  ?column? 
 ----------
@@ -3172,7 +3172,7 @@ SELECT '5'::base32uint8 + '2'::base32uint2;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint2);
   pg_typeof  
 -------------
@@ -3186,7 +3186,7 @@ SELECT '1'::base32uint8 - '1'::base32uint2;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::base32uint2;
  ?column? 
 ----------
@@ -3352,7 +3352,7 @@ SELECT '5'::base32uint8 + '2'::base32uint4;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -3366,7 +3366,7 @@ SELECT '1'::base32uint8 - '1'::base32uint4;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::base32uint4;
  ?column? 
 ----------
@@ -3532,7 +3532,7 @@ SELECT '5'::base32uint8 + '2'::base32uint8;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -3546,7 +3546,7 @@ SELECT '1'::base32uint8 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::base32uint8;
  ?column? 
 ----------
@@ -3704,7 +3704,7 @@ SELECT '5'::base32uint8 + '2'::int2;
 (1 row)
 
 SELECT '3'::base32uint8 + '-4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 + '-2'::int2;
  ?column? 
 ----------
@@ -3712,7 +3712,7 @@ SELECT '5'::base32uint8 + '-2'::int2;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '32767'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int2);
   pg_typeof  
 -------------
@@ -3726,7 +3726,7 @@ SELECT '1'::base32uint8 - '1'::int2;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::int2;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::int2;
  ?column? 
 ----------
@@ -3904,7 +3904,7 @@ SELECT '5'::base32uint8 + '2'::int4;
 (1 row)
 
 SELECT '3'::base32uint8 + '-4'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 + '-2'::int4;
  ?column? 
 ----------
@@ -3912,7 +3912,7 @@ SELECT '5'::base32uint8 + '-2'::int4;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '2147483647'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int4);
   pg_typeof  
 -------------
@@ -3926,7 +3926,7 @@ SELECT '1'::base32uint8 - '1'::int4;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::int4;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::int4;
  ?column? 
 ----------
@@ -4104,7 +4104,7 @@ SELECT '5'::base32uint8 + '2'::int8;
 (1 row)
 
 SELECT '3'::base32uint8 + '-4'::int8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 + '-2'::int8;
  ?column? 
 ----------
@@ -4112,7 +4112,7 @@ SELECT '5'::base32uint8 + '-2'::int8;
 (1 row)
 
 SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '9223372036854775807'::int8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::base32uint8 - '1'::int8);
   pg_typeof  
 -------------
@@ -4126,7 +4126,7 @@ SELECT '1'::base32uint8 - '1'::int8;
 (1 row)
 
 SELECT '3'::base32uint8 - '4'::int8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::base32uint8 - '2'::int8;
  ?column? 
 ----------
@@ -4504,9 +4504,9 @@ SELECT '-3'::int2 + '4'::base32uint2;
 (1 row)
 
 SELECT '-5'::int2 + '2'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '32767'::int2 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT pg_typeof('1'::int2 - '1'::base32uint2);
   pg_typeof  
 -------------
@@ -4520,7 +4520,7 @@ SELECT '1'::int2 - '1'::base32uint2;
 (1 row)
 
 SELECT '3'::int2 - '4'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '5'::int2 - '2'::base32uint2;
  ?column? 
 ----------
@@ -4528,9 +4528,9 @@ SELECT '5'::int2 - '2'::base32uint2;
 (1 row)
 
 SELECT '-3'::int2 - '4'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT '-5'::int2 - '2'::base32uint2;
-ERROR:  integer out of range
+ERROR:  base32uint2 out of range
 SELECT CAST('5'::int2 AS base32uint2);
  base32uint2 
 -------------
@@ -4696,9 +4696,9 @@ SELECT '-3'::int2 + '4'::base32uint4;
 (1 row)
 
 SELECT '-5'::int2 + '2'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '32767'::int2 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::int2 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -4712,7 +4712,7 @@ SELECT '1'::int2 - '1'::base32uint4;
 (1 row)
 
 SELECT '3'::int2 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::int2 - '2'::base32uint4;
  ?column? 
 ----------
@@ -4720,9 +4720,9 @@ SELECT '5'::int2 - '2'::base32uint4;
 (1 row)
 
 SELECT '-3'::int2 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '-5'::int2 - '2'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT CAST('5'::int2 AS base32uint4);
  base32uint4 
 -------------
@@ -4888,9 +4888,9 @@ SELECT '-3'::int2 + '4'::base32uint8;
 (1 row)
 
 SELECT '-5'::int2 + '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '32767'::int2 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::int2 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -4904,7 +4904,7 @@ SELECT '1'::int2 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::int2 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::int2 - '2'::base32uint8;
  ?column? 
 ----------
@@ -4912,9 +4912,9 @@ SELECT '5'::int2 - '2'::base32uint8;
 (1 row)
 
 SELECT '-3'::int2 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '-5'::int2 - '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT CAST('5'::int2 AS base32uint8);
  base32uint8 
 -------------
@@ -5278,7 +5278,7 @@ SELECT '-5'::int4 + '2'::base32uint2;
 (1 row)
 
 SELECT '2147483647'::int4 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  int4 out of range
 SELECT pg_typeof('1'::int4 - '1'::base32uint2);
  pg_typeof 
 -----------
@@ -5486,9 +5486,9 @@ SELECT '-3'::int4 + '4'::base32uint4;
 (1 row)
 
 SELECT '-5'::int4 + '2'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '2147483647'::int4 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT pg_typeof('1'::int4 - '1'::base32uint4);
   pg_typeof  
 -------------
@@ -5502,7 +5502,7 @@ SELECT '1'::int4 - '1'::base32uint4;
 (1 row)
 
 SELECT '3'::int4 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '5'::int4 - '2'::base32uint4;
  ?column? 
 ----------
@@ -5510,9 +5510,9 @@ SELECT '5'::int4 - '2'::base32uint4;
 (1 row)
 
 SELECT '-3'::int4 - '4'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT '-5'::int4 - '2'::base32uint4;
-ERROR:  integer out of range
+ERROR:  base32uint4 out of range
 SELECT CAST('5'::int4 AS base32uint4);
  base32uint4 
 -------------
@@ -5678,9 +5678,9 @@ SELECT '-3'::int4 + '4'::base32uint8;
 (1 row)
 
 SELECT '-5'::int4 + '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '2147483647'::int4 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::int4 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -5694,7 +5694,7 @@ SELECT '1'::int4 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::int4 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::int4 - '2'::base32uint8;
  ?column? 
 ----------
@@ -5702,9 +5702,9 @@ SELECT '5'::int4 - '2'::base32uint8;
 (1 row)
 
 SELECT '-3'::int4 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '-5'::int4 - '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT CAST('5'::int4 AS base32uint8);
  base32uint8 
 -------------
@@ -6068,7 +6068,7 @@ SELECT '-5'::int8 + '2'::base32uint2;
 (1 row)
 
 SELECT '9223372036854775807'::int8 + '1ZZZ'::base32uint2;
-ERROR:  integer out of range
+ERROR:  int8 out of range
 SELECT pg_typeof('1'::int8 - '1'::base32uint2);
  pg_typeof 
 -----------
@@ -6282,7 +6282,7 @@ SELECT '-5'::int8 + '2'::base32uint4;
 (1 row)
 
 SELECT '9223372036854775807'::int8 + '3ZZZZZZ'::base32uint4;
-ERROR:  integer out of range
+ERROR:  int8 out of range
 SELECT pg_typeof('1'::int8 - '1'::base32uint4);
  pg_typeof 
 -----------
@@ -6490,9 +6490,9 @@ SELECT '-3'::int8 + '4'::base32uint8;
 (1 row)
 
 SELECT '-5'::int8 + '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '9223372036854775807'::int8 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT pg_typeof('1'::int8 - '1'::base32uint8);
   pg_typeof  
 -------------
@@ -6506,7 +6506,7 @@ SELECT '1'::int8 - '1'::base32uint8;
 (1 row)
 
 SELECT '3'::int8 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '5'::int8 - '2'::base32uint8;
  ?column? 
 ----------
@@ -6514,9 +6514,9 @@ SELECT '5'::int8 - '2'::base32uint8;
 (1 row)
 
 SELECT '-3'::int8 - '4'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT '-5'::int8 - '2'::base32uint8;
-ERROR:  integer out of range
+ERROR:  base32uint8 out of range
 SELECT CAST('5'::int8 AS base32uint8);
  base32uint8 
 -------------

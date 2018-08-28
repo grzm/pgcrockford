@@ -197,10 +197,10 @@ def write_op_c_function(f, funcname, leftarg, rightarg, op, rettype, c_check='',
     if c_check:
         body += """
 
-if ({0})
+if ({c_check})
 \tereport(ERROR,
 \t\t(errcode(ERRCODE_NUMERIC_VALUE_OUT_OF_RANGE),
-\t\t errmsg("integer out of range")));""".format(c_check)
+\t\t errmsg("{rettype} out of range")));""".format(c_check=c_check,rettype=rettype)
     if intermediate_type:
         body += "\nresult = result2;"
 
