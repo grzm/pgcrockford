@@ -102,7 +102,7 @@ max_values = {
     'int8': '9223372036854775807',
     'base32uint2': '1ZZZ',
     'base32uint4': '3ZZZZZZ',
-    'base32uint8': '7ZZZZZZZZZZZZ',
+    'base32uint8': 'FZZZZZZZZZZZZ',
 }
 
 too_big = {
@@ -111,7 +111,7 @@ too_big = {
     'int8': '10000000000000000000',
     'base32uint2': '2000',
     'base32uint4': '4000000',
-    'base32uint8': '8000000000000',
+    'base32uint8': 'G000000000000',
 }
 
 
