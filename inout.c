@@ -2,7 +2,7 @@
 #include <fmgr.h>
 #include <utils/builtins.h>
 
-#include "base32.h"
+#include "crockford.h"
 
 #include <inttypes.h>
 #include <limits.h>
@@ -18,7 +18,7 @@
 #define MAX_BASE32_UINT64 18446744073709551615ULL
 
 static const char
-base32_values[] = {
+crockford_values[] = {
     // 0..47
     BAD_CHAR, BAD_CHAR, BAD_CHAR, BAD_CHAR,
     BAD_CHAR, BAD_CHAR, BAD_CHAR, BAD_CHAR,
@@ -114,10 +114,10 @@ base32_values[] = {
 
     BAD_CHAR, BAD_CHAR, BAD_CHAR, BAD_CHAR,
     BAD_CHAR, BAD_CHAR, BAD_CHAR, BAD_CHAR
-}; // base32_values
+}; // crockford_values
 
 static uint64
-base32_atou(const char *s, int size)
+crockford_atou(const char *s, int size)
 {
     unsigned long long int result = 0;
     bool out_of_range = false;
@@ -131,17 +131,17 @@ base32_atou(const char *s, int size)
     if (*s == 0)
         ereport(ERROR,
                 (errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
-                 errmsg("invalid input syntax for base32 value: \"%s\"", s)));
+                 errmsg("invalid input syntax for crockford value: \"%s\"", s)));
 
     errno = 0;
 
     while (s[i]) {
-        char c = base32_values[(size_t)s[i]];
+        char c = crockford_values[(size_t)s[i]];
 
         if (BAD_CHAR == c)
             ereport(ERROR,
                     (errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
-                     errmsg("invalid input syntax for base32 value: \"%s\"", s),
+                     errmsg("invalid input syntax for crockford value: \"%s\"", s),
                      errdetail("symbol \"%c\" is invalid", s[i])));
 
         if (IGNORE_CHAR != c) {
@@ -162,7 +162,7 @@ base32_atou(const char *s, int size)
     if (!saw_digit)
         ereport(ERROR,
                 (errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
-                 errmsg("invalid input syntax for base32 value: \"%s\"", s)));
+                 errmsg("invalid input syntax for crockford value: \"%s\"", s)));
 
 
     switch (size)
@@ -186,23 +186,23 @@ base32_atou(const char *s, int size)
     if (out_of_range)
         ereport(ERROR,
                 (errcode(ERRCODE_NUMERIC_VALUE_OUT_OF_RANGE),
-                 errmsg("value \"%s\" is out of range for type base32int%d", s, size)));
+                 errmsg("value \"%s\" is out of range for type crockfordint%d", s, size)));
 
     return result;
 }
 
 static char*
-base32_utoa(uint64 value)
+crockford_utoa(uint64 value)
 {
     char *ptr;
-    const char *base32_digits = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+    const char *crockford_digits = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
     char buf[BASE32UINT8_LENGTH + 1];
 
     ptr = buf + sizeof(buf) - 1;
     *ptr = '\0';
 
     do {
-        *--ptr = base32_digits[value % BASE32_RADIX];
+        *--ptr = crockford_digits[value % BASE32_RADIX];
         value /= BASE32_RADIX;
     } while (ptr > buf && value);
 
@@ -210,58 +210,58 @@ base32_utoa(uint64 value)
 }
 
 
-// base32uint2
+// crockford2
 
-PG_FUNCTION_INFO_V1(base32uint2in);
+PG_FUNCTION_INFO_V1(crockford2in);
 Datum
-base32uint2in(PG_FUNCTION_ARGS)
+crockford2in(PG_FUNCTION_ARGS)
 {
     char *s = PG_GETARG_CSTRING(0);
 
-    PG_RETURN_UINT16(base32_atou(s, sizeof(uint16)));
+    PG_RETURN_UINT16(crockford_atou(s, sizeof(uint16)));
 }
 
-PG_FUNCTION_INFO_V1(base32uint2out);
+PG_FUNCTION_INFO_V1(crockford2out);
 Datum
-base32uint2out(PG_FUNCTION_ARGS)
+crockford2out(PG_FUNCTION_ARGS)
 {
-    PG_RETURN_CSTRING(base32_utoa((uint64)PG_GETARG_UINT16(0)));
+    PG_RETURN_CSTRING(crockford_utoa((uint64)PG_GETARG_UINT16(0)));
 }
 
 
-// base32uint4
+// crockford4
 
-PG_FUNCTION_INFO_V1(base32uint4in);
+PG_FUNCTION_INFO_V1(crockford4in);
 Datum
-base32uint4in(PG_FUNCTION_ARGS)
-{
-    char *s = PG_GETARG_CSTRING(0);
-
-    PG_RETURN_UINT32(base32_atou(s, sizeof(uint32)));
-}
-
-PG_FUNCTION_INFO_V1(base32uint4out);
-Datum
-base32uint4out(PG_FUNCTION_ARGS)
-{
-    PG_RETURN_CSTRING(base32_utoa((uint64)PG_GETARG_UINT32(0)));
-}
-
-
-// base32uint8
-
-PG_FUNCTION_INFO_V1(base32uint8in);
-Datum
-base32uint8in(PG_FUNCTION_ARGS)
+crockford4in(PG_FUNCTION_ARGS)
 {
     char *s = PG_GETARG_CSTRING(0);
 
-    PG_RETURN_UINT64(base32_atou(s, sizeof(uint64)));
+    PG_RETURN_UINT32(crockford_atou(s, sizeof(uint32)));
 }
 
-PG_FUNCTION_INFO_V1(base32uint8out);
+PG_FUNCTION_INFO_V1(crockford4out);
 Datum
-base32uint8out(PG_FUNCTION_ARGS)
+crockford4out(PG_FUNCTION_ARGS)
 {
-    PG_RETURN_CSTRING(base32_utoa(PG_GETARG_UINT64(0)));
+    PG_RETURN_CSTRING(crockford_utoa((uint64)PG_GETARG_UINT32(0)));
+}
+
+
+// crockford8
+
+PG_FUNCTION_INFO_V1(crockford8in);
+Datum
+crockford8in(PG_FUNCTION_ARGS)
+{
+    char *s = PG_GETARG_CSTRING(0);
+
+    PG_RETURN_UINT64(crockford_atou(s, sizeof(uint64)));
+}
+
+PG_FUNCTION_INFO_V1(crockford8out);
+Datum
+crockford8out(PG_FUNCTION_ARGS)
+{
+    PG_RETURN_CSTRING(crockford_utoa(PG_GETARG_UINT64(0)));
 }

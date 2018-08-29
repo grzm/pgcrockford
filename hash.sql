@@ -1,3 +1,3 @@
-CREATE FUNCTION hashbase32uint2(base32uint2) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/base32', 'hashbase32uint2';
-CREATE FUNCTION hashbase32uint4(base32uint4) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/base32', 'hashbase32uint4';
-CREATE FUNCTION hashbase32uint8(base32uint8) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/base32', 'hashbase32uint8';
+CREATE FUNCTION hashcrockford2(crockford2) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'hashcrockford2';
+CREATE FUNCTION hashcrockford4(crockford4) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'hashcrockford4';
+CREATE FUNCTION hashcrockford8(crockford8) RETURNS int4 IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'hashcrockford8';

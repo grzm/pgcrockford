@@ -1,9 +1,9 @@
 import re
 import sys
 
-search_path = 'base32'
+search_path = 'crockford'
 
-new_types = ['base32uint2', 'base32uint4', 'base32uint8']
+new_types = ['crockford2', 'crockford4', 'crockford8']
 old_types = ['int2', 'int4', 'int8']
 
 comparison_ops = ['<', '<=', '=', '<>', '>=', '>']
@@ -64,9 +64,9 @@ c_types = {
     'int2': 'int16',
     'int4': 'int32',
     'int8': 'int64',
-    'base32uint2': 'uint16',
-    'base32uint4': 'uint32',
-    'base32uint8': 'uint64',
+    'crockford2': 'uint16',
+    'crockford4': 'uint32',
+    'crockford8': 'uint64',
 }
 
 
@@ -91,7 +91,7 @@ def type_signed(typ):
 
 
 def type_unsigned(typ):
-    return re.search(r'uint', typ) is not None
+    return re.search(r'uint|crockford', typ) is not None
 
 min_values = {}
 
@@ -100,18 +100,18 @@ max_values = {
     'int2': '32767',
     'int4': '2147483647',
     'int8': '9223372036854775807',
-    'base32uint2': '1ZZZ',
-    'base32uint4': '3ZZZZZZ',
-    'base32uint8': 'FZZZZZZZZZZZZ',
+    'crockford2': '1ZZZ',
+    'crockford4': '3ZZZZZZ',
+    'crockford8': 'FZZZZZZZZZZZZ',
 }
 
 too_big = {
     'int2': '40000',
     'int4': '3000000000',
     'int8': '10000000000000000000',
-    'base32uint2': '2000',
-    'base32uint4': '4000000',
-    'base32uint8': 'G000000000000',
+    'crockford2': '2000',
+    'crockford4': '4000000',
+    'crockford8': 'G000000000000',
 }
 
 
@@ -153,7 +153,7 @@ def write_sql_function(f, funcname, argtypes, rettype, sql_funcname=None, strict
     if not sql_funcname:
         sql_funcname = funcname
     f.write("CREATE FUNCTION {sql_funcname}({argtypes}) RETURNS {rettype}"
-            " IMMUTABLE{strict} LANGUAGE C AS '$libdir/base32', '{funcname}';\n\n"
+            " IMMUTABLE{strict} LANGUAGE C AS '$libdir/crockford', '{funcname}';\n\n"
             .format(sql_funcname=sql_funcname,
                     argtypes=', '.join([x for x in argtypes if x]),
                     rettype=rettype,
@@ -417,7 +417,7 @@ def main(pgversion):
 #include <postgres.h>
 #include <fmgr.h>
 
-#include "base32.h"
+#include "crockford.h"
 
 """)
     if pgversion >= 9.2:

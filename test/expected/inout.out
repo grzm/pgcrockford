@@ -1,5 +1,5 @@
 SELECT b32
-  FROM (VALUES ('0'::base32.base32uint2),
+  FROM (VALUES ('0'::crockford.crockford2),
                ('-0-'),
                ('-1'),
                ('-ololi-'),
@@ -13,39 +13,39 @@ SELECT b32
  1ZZZ
 (5 rows)
 
-SELECT '2000'::base32.base32uint2;
-ERROR:  value "2000" is out of range for type base32int2
-LINE 1: SELECT '2000'::base32.base32uint2;
+SELECT '2000'::crockford.crockford2;
+ERROR:  value "2000" is out of range for type crockfordint2
+LINE 1: SELECT '2000'::crockford.crockford2;
                ^
-SELECT '-'::base32.base32uint2;
-ERROR:  invalid input syntax for base32 value: "-"
-LINE 1: SELECT '-'::base32.base32uint2;
+SELECT '-'::crockford.crockford2;
+ERROR:  invalid input syntax for crockford value: "-"
+LINE 1: SELECT '-'::crockford.crockford2;
                ^
-SELECT '+0'::base32.base32uint2;
-ERROR:  invalid input syntax for base32 value: "+0"
-LINE 1: SELECT '+0'::base32.base32uint2;
+SELECT '+0'::crockford.crockford2;
+ERROR:  invalid input syntax for crockford value: "+0"
+LINE 1: SELECT '+0'::crockford.crockford2;
                ^
 DETAIL:  symbol "+" is invalid
-SELECT 'U'::base32.base32uint2;
-ERROR:  invalid input syntax for base32 value: "U"
-LINE 1: SELECT 'U'::base32.base32uint2;
+SELECT 'U'::crockford.crockford2;
+ERROR:  invalid input syntax for crockford value: "U"
+LINE 1: SELECT 'U'::crockford.crockford2;
                ^
 DETAIL:  symbol "U" is invalid
-SELECT 'u'::base32.base32uint2;
-ERROR:  invalid input syntax for base32 value: "u"
-LINE 1: SELECT 'u'::base32.base32uint2;
+SELECT 'u'::crockford.crockford2;
+ERROR:  invalid input syntax for crockford value: "u"
+LINE 1: SELECT 'u'::crockford.crockford2;
                ^
 DETAIL:  symbol "u" is invalid
-SELECT 65535::base32.base32uint2;
- base32uint2 
--------------
+SELECT 65535::crockford.crockford2;
+ crockford2 
+------------
  1ZZZ
 (1 row)
 
-SELECT 65536::base32.base32uint2;
-ERROR:  base32uint2 out of range
+SELECT 65536::crockford.crockford2;
+ERROR:  crockford2 out of range
 SELECT b32
-  FROM (VALUES ('0'::base32.base32uint4),
+  FROM (VALUES ('0'::crockford.crockford4),
                ('-0-'),
                ('-1'),
                ('-ololi-'),
@@ -59,29 +59,29 @@ SELECT b32
  3ZZZZZZ
 (5 rows)
 
-SELECT 4294967295::base32.base32uint4;
- base32uint4 
--------------
+SELECT 4294967295::crockford.crockford4;
+ crockford4 
+------------
  3ZZZZZZ
 (1 row)
 
-SELECT 4294967296::base32.base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '4000000'::base32.base32uint4;
-ERROR:  value "4000000" is out of range for type base32int4
-LINE 1: SELECT '4000000'::base32.base32uint4;
+SELECT 4294967296::crockford.crockford4;
+ERROR:  crockford4 out of range
+SELECT '4000000'::crockford.crockford4;
+ERROR:  value "4000000" is out of range for type crockfordint4
+LINE 1: SELECT '4000000'::crockford.crockford4;
                ^
-SELECT '-'::base32.base32uint4;
-ERROR:  invalid input syntax for base32 value: "-"
-LINE 1: SELECT '-'::base32.base32uint4;
+SELECT '-'::crockford.crockford4;
+ERROR:  invalid input syntax for crockford value: "-"
+LINE 1: SELECT '-'::crockford.crockford4;
                ^
-SELECT '+0'::base32.base32uint4;
-ERROR:  invalid input syntax for base32 value: "+0"
-LINE 1: SELECT '+0'::base32.base32uint4;
+SELECT '+0'::crockford.crockford4;
+ERROR:  invalid input syntax for crockford value: "+0"
+LINE 1: SELECT '+0'::crockford.crockford4;
                ^
 DETAIL:  symbol "+" is invalid
 SELECT b32
-  FROM (VALUES ('0'::base32.base32uint8),
+  FROM (VALUES ('0'::crockford.crockford8),
                ('-0-'),
                ('-1'),
                ('-ololi-'),
@@ -95,16 +95,16 @@ SELECT b32
  FZZZZZZZZZZZZ
 (5 rows)
 
-SELECT 'G000000000000'::base32.base32uint8;
-ERROR:  value "G000000000000" is out of range for type base32int8
-LINE 1: SELECT 'G000000000000'::base32.base32uint8;
+SELECT 'G000000000000'::crockford.crockford8;
+ERROR:  value "G000000000000" is out of range for type crockfordint8
+LINE 1: SELECT 'G000000000000'::crockford.crockford8;
                ^
-SELECT '-'::base32.base32uint8;
-ERROR:  invalid input syntax for base32 value: "-"
-LINE 1: SELECT '-'::base32.base32uint8;
+SELECT '-'::crockford.crockford8;
+ERROR:  invalid input syntax for crockford value: "-"
+LINE 1: SELECT '-'::crockford.crockford8;
                ^
-SELECT '+0'::base32.base32uint8;
-ERROR:  invalid input syntax for base32 value: "+0"
-LINE 1: SELECT '+0'::base32.base32uint8;
+SELECT '+0'::crockford.crockford8;
+ERROR:  invalid input syntax for crockford value: "+0"
+LINE 1: SELECT '+0'::crockford.crockford8;
                ^
 DETAIL:  symbol "+" is invalid

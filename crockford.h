@@ -4,14 +4,14 @@
 #include "postgres.h"
 #include "utils/builtins.h"
 
-/* static int base32_digits[32] = */
+/* static int crockford_digits[32] = */
 /*   { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', */
 /*     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', */
 /*     'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', */
 /*     'Y', 'Z' */
 /*   }; */
 
-/* static int base32_check_symbols[37] = */
+/* static int crockford_check_symbols[37] = */
 /*   { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', */
 /*     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', */
 /*     'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', */

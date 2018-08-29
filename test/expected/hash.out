@@ -11,21 +11,21 @@ SELECT hashoid(55);
  -305105437
 (1 row)
 
-SELECT base32.hashbase32uint2('1Q'::base32.base32uint2);
- hashbase32uint2 
------------------
-      -305105437
+SELECT crockford.hashcrockford2('1Q'::crockford.crockford2);
+ hashcrockford2 
+----------------
+     -305105437
 (1 row)
 
-SELECT base32.hashbase32uint4('1Q'::base32.base32uint4);
- hashbase32uint4 
------------------
-      -305105437
+SELECT crockford.hashcrockford4('1Q'::crockford.crockford4);
+ hashcrockford4 
+----------------
+     -305105437
 (1 row)
 
-SELECT base32.hashbase32uint8('1Q'::base32.base32uint8);
- hashbase32uint8 
------------------
-      -305105437
+SELECT crockford.hashcrockford8('1Q'::crockford.crockford8);
+ hashcrockford8 
+----------------
+     -305105437
 (1 row)
 

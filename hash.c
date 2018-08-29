@@ -2,7 +2,7 @@
 #include <fmgr.h>
 #include <access/hash.h>
 
-#include "base32.h"
+#include "crockford.h"
 
 #define make_hashfunc(type, BTYPE, casttype) \
 PG_FUNCTION_INFO_V1(hash##type); \
@@ -13,12 +13,12 @@ hash##type(PG_FUNCTION_ARGS) \
 } \
 extern int no_such_variable
 
-make_hashfunc(base32uint2, UINT16, uint32);
-make_hashfunc(base32uint4, UINT32, uint32);
+make_hashfunc(crockford2, UINT16, uint32);
+make_hashfunc(crockford4, UINT32, uint32);
 
-PG_FUNCTION_INFO_V1(hashbase32uint8);
+PG_FUNCTION_INFO_V1(hashcrockford8);
 Datum
-hashbase32uint8(PG_FUNCTION_ARGS)
+hashcrockford8(PG_FUNCTION_ARGS)
 {
 	/* see also hashint8 */
 	uint64		val = PG_GETARG_UINT64(0);

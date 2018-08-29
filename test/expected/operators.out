@@ -1,44 +1,44 @@
-SET search_path TO base32;
-SELECT '55'::base32uint2;
- base32uint2 
--------------
+SET search_path TO crockford;
+SELECT '55'::crockford2;
+ crockford2 
+------------
  55
 (1 row)
 
-SELECT '-55'::base32uint2;
- base32uint2 
--------------
+SELECT '-55'::crockford2;
+ crockford2 
+------------
  55
 (1 row)
 
-SELECT ''::base32uint2;
-ERROR:  invalid input syntax for base32 value: ""
-LINE 1: SELECT ''::base32uint2;
+SELECT ''::crockford2;
+ERROR:  invalid input syntax for crockford value: ""
+LINE 1: SELECT ''::crockford2;
                ^
-SELECT 'x'::base32uint2;
- base32uint2 
--------------
+SELECT 'x'::crockford2;
+ crockford2 
+------------
  X
 (1 row)
 
-SELECT '55 x'::base32uint2;
-ERROR:  invalid input syntax for base32 value: "55 x"
-LINE 1: SELECT '55 x'::base32uint2;
+SELECT '55 x'::crockford2;
+ERROR:  invalid input syntax for crockford value: "55 x"
+LINE 1: SELECT '55 x'::crockford2;
                ^
 DETAIL:  symbol " " is invalid
-SELECT '1ZZZ'::base32uint2;
- base32uint2 
--------------
+SELECT '1ZZZ'::crockford2;
+ crockford2 
+------------
  1ZZZ
 (1 row)
 
-SELECT '2000'::base32uint2;
-ERROR:  value "2000" is out of range for type base32int2
-LINE 1: SELECT '2000'::base32uint2;
+SELECT '2000'::crockford2;
+ERROR:  value "2000" is out of range for type crockfordint2
+LINE 1: SELECT '2000'::crockford2;
                ^
-CREATE TABLE test_base32uint2 (a base32uint2);
-INSERT INTO test_base32uint2 VALUES (1), (2), (3), (4), (5);
-SELECT a FROM test_base32uint2;
+CREATE TABLE test_crockford2 (a crockford2);
+INSERT INTO test_crockford2 VALUES (1), (2), (3), (4), (5);
+SELECT a FROM test_crockford2;
  a 
 ---
  1
@@ -48,7 +48,7 @@ SELECT a FROM test_base32uint2;
  5
 (5 rows)
 
-SELECT a FROM test_base32uint2 ORDER BY a;
+SELECT a FROM test_crockford2 ORDER BY a;
  a 
 ---
  1
@@ -58,48 +58,48 @@ SELECT a FROM test_base32uint2 ORDER BY a;
  5
 (5 rows)
 
-DROP TABLE test_base32uint2;
-SET search_path TO base32;
-SELECT '55'::base32uint4;
- base32uint4 
--------------
+DROP TABLE test_crockford2;
+SET search_path TO crockford;
+SELECT '55'::crockford4;
+ crockford4 
+------------
  55
 (1 row)
 
-SELECT '-55'::base32uint4;
- base32uint4 
--------------
+SELECT '-55'::crockford4;
+ crockford4 
+------------
  55
 (1 row)
 
-SELECT ''::base32uint4;
-ERROR:  invalid input syntax for base32 value: ""
-LINE 1: SELECT ''::base32uint4;
+SELECT ''::crockford4;
+ERROR:  invalid input syntax for crockford value: ""
+LINE 1: SELECT ''::crockford4;
                ^
-SELECT 'x'::base32uint4;
- base32uint4 
--------------
+SELECT 'x'::crockford4;
+ crockford4 
+------------
  X
 (1 row)
 
-SELECT '55 x'::base32uint4;
-ERROR:  invalid input syntax for base32 value: "55 x"
-LINE 1: SELECT '55 x'::base32uint4;
+SELECT '55 x'::crockford4;
+ERROR:  invalid input syntax for crockford value: "55 x"
+LINE 1: SELECT '55 x'::crockford4;
                ^
 DETAIL:  symbol " " is invalid
-SELECT '3ZZZZZZ'::base32uint4;
- base32uint4 
--------------
+SELECT '3ZZZZZZ'::crockford4;
+ crockford4 
+------------
  3ZZZZZZ
 (1 row)
 
-SELECT '4000000'::base32uint4;
-ERROR:  value "4000000" is out of range for type base32int4
-LINE 1: SELECT '4000000'::base32uint4;
+SELECT '4000000'::crockford4;
+ERROR:  value "4000000" is out of range for type crockfordint4
+LINE 1: SELECT '4000000'::crockford4;
                ^
-CREATE TABLE test_base32uint4 (a base32uint4);
-INSERT INTO test_base32uint4 VALUES (1), (2), (3), (4), (5);
-SELECT a FROM test_base32uint4;
+CREATE TABLE test_crockford4 (a crockford4);
+INSERT INTO test_crockford4 VALUES (1), (2), (3), (4), (5);
+SELECT a FROM test_crockford4;
  a 
 ---
  1
@@ -109,7 +109,7 @@ SELECT a FROM test_base32uint4;
  5
 (5 rows)
 
-SELECT a FROM test_base32uint4 ORDER BY a;
+SELECT a FROM test_crockford4 ORDER BY a;
  a 
 ---
  1
@@ -119,48 +119,48 @@ SELECT a FROM test_base32uint4 ORDER BY a;
  5
 (5 rows)
 
-DROP TABLE test_base32uint4;
-SET search_path TO base32;
-SELECT '55'::base32uint8;
- base32uint8 
--------------
+DROP TABLE test_crockford4;
+SET search_path TO crockford;
+SELECT '55'::crockford8;
+ crockford8 
+------------
  55
 (1 row)
 
-SELECT '-55'::base32uint8;
- base32uint8 
--------------
+SELECT '-55'::crockford8;
+ crockford8 
+------------
  55
 (1 row)
 
-SELECT ''::base32uint8;
-ERROR:  invalid input syntax for base32 value: ""
-LINE 1: SELECT ''::base32uint8;
+SELECT ''::crockford8;
+ERROR:  invalid input syntax for crockford value: ""
+LINE 1: SELECT ''::crockford8;
                ^
-SELECT 'x'::base32uint8;
- base32uint8 
--------------
+SELECT 'x'::crockford8;
+ crockford8 
+------------
  X
 (1 row)
 
-SELECT '55 x'::base32uint8;
-ERROR:  invalid input syntax for base32 value: "55 x"
-LINE 1: SELECT '55 x'::base32uint8;
+SELECT '55 x'::crockford8;
+ERROR:  invalid input syntax for crockford value: "55 x"
+LINE 1: SELECT '55 x'::crockford8;
                ^
 DETAIL:  symbol " " is invalid
-SELECT 'FZZZZZZZZZZZZ'::base32uint8;
-  base32uint8  
+SELECT 'FZZZZZZZZZZZZ'::crockford8;
+  crockford8   
 ---------------
  FZZZZZZZZZZZZ
 (1 row)
 
-SELECT 'G000000000000'::base32uint8;
-ERROR:  value "G000000000000" is out of range for type base32int8
-LINE 1: SELECT 'G000000000000'::base32uint8;
+SELECT 'G000000000000'::crockford8;
+ERROR:  value "G000000000000" is out of range for type crockfordint8
+LINE 1: SELECT 'G000000000000'::crockford8;
                ^
-CREATE TABLE test_base32uint8 (a base32uint8);
-INSERT INTO test_base32uint8 VALUES (1), (2), (3), (4), (5);
-SELECT a FROM test_base32uint8;
+CREATE TABLE test_crockford8 (a crockford8);
+INSERT INTO test_crockford8 VALUES (1), (2), (3), (4), (5);
+SELECT a FROM test_crockford8;
  a 
 ---
  1
@@ -170,7 +170,7 @@ SELECT a FROM test_base32uint8;
  5
 (5 rows)
 
-SELECT a FROM test_base32uint8 ORDER BY a;
+SELECT a FROM test_crockford8 ORDER BY a;
  a 
 ---
  1
@@ -180,3980 +180,3980 @@ SELECT a FROM test_base32uint8 ORDER BY a;
  5
 (5 rows)
 
-DROP TABLE test_base32uint8;
-SELECT '2'::base32uint2 < 5;
+DROP TABLE test_crockford8;
+SELECT '2'::crockford2 < 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 < '5'::base32uint2;
+SELECT 2 < '5'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 < 2;
+SELECT '5'::crockford2 < 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 < '2'::base32uint2;
+SELECT 5 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint2 <= 5;
+SELECT '2'::crockford2 <= 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <= '5'::base32uint2;
+SELECT 2 <= '5'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= 2;
+SELECT '5'::crockford2 <= 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 <= '2'::base32uint2;
+SELECT 5 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint2 = 5;
+SELECT '2'::crockford2 = 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 = '5'::base32uint2;
+SELECT 2 = '5'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 = 2;
+SELECT '5'::crockford2 = 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 = '2'::base32uint2;
+SELECT 5 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint2 <> 5;
+SELECT '2'::crockford2 <> 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <> '5'::base32uint2;
+SELECT 2 <> '5'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <> 2;
+SELECT '5'::crockford2 <> 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 <> '2'::base32uint2;
+SELECT 5 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint2 >= 5;
+SELECT '2'::crockford2 >= 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 >= '5'::base32uint2;
+SELECT 2 >= '5'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 >= 2;
+SELECT '5'::crockford2 >= 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 >= '2'::base32uint2;
+SELECT 5 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint2 > 5;
+SELECT '2'::crockford2 > 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 > '5'::base32uint2;
+SELECT 2 > '5'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > 2;
+SELECT '5'::crockford2 > 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 > '2'::base32uint2;
+SELECT 5 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint2 + 5;
+SELECT '2'::crockford2 + 5;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT 2 + '5'::base32uint2;
+SELECT 2 + '5'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint2 + 2;
+SELECT '5'::crockford2 + 2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT 5 + '2'::base32uint2;
+SELECT 5 + '2'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '2'::base32uint2 - 5;
+SELECT '2'::crockford2 - 5;
  ?column? 
 ----------
        -3
 (1 row)
 
-SELECT 2 - '5'::base32uint2;
+SELECT 2 - '5'::crockford2;
  ?column? 
 ----------
        -3
 (1 row)
 
-SELECT '5'::base32uint2 - 2;
+SELECT '5'::crockford2 - 2;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT 5 - '2'::base32uint2;
+SELECT 5 - '2'::crockford2;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '1'::base32uint2 < '1'::base32uint2;
+SELECT '1'::crockford2 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::base32uint2;
+SELECT '5'::crockford2 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::base32uint2;
+SELECT '3'::crockford2 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::base32uint2;
+SELECT '1'::crockford2 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::base32uint2;
+SELECT '5'::crockford2 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::base32uint2;
+SELECT '3'::crockford2 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::base32uint2;
+SELECT '1'::crockford2 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::base32uint2;
+SELECT '5'::crockford2 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::base32uint2;
+SELECT '3'::crockford2 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::base32uint2;
+SELECT '1'::crockford2 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::base32uint2;
+SELECT '5'::crockford2 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::base32uint2;
+SELECT '3'::crockford2 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::base32uint2;
+SELECT '1'::crockford2 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::base32uint2;
+SELECT '5'::crockford2 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::base32uint2;
+SELECT '3'::crockford2 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::base32uint2;
+SELECT '1'::crockford2 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::base32uint2;
+SELECT '5'::crockford2 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::base32uint2;
+SELECT '3'::crockford2 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2base32uint2cmp('1'::base32uint2, '1'::base32uint2);
- btbase32uint2base32uint2cmp 
------------------------------
-                           0
+SELECT btcrockford2crockford2cmp('1'::crockford2, '1'::crockford2);
+ btcrockford2crockford2cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint2base32uint2cmp('5'::base32uint2, '2'::base32uint2);
- btbase32uint2base32uint2cmp 
------------------------------
-                           1
+SELECT btcrockford2crockford2cmp('5'::crockford2, '2'::crockford2);
+ btcrockford2crockford2cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint2base32uint2cmp('3'::base32uint2, '4'::base32uint2);
- btbase32uint2base32uint2cmp 
------------------------------
-                          -1
+SELECT btcrockford2crockford2cmp('3'::crockford2, '4'::crockford2);
+ btcrockford2crockford2cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint2
+SELECT pg_typeof('1'::crockford2 + '1'::crockford2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::base32uint2;
+SELECT '1'::crockford2 + '1'::crockford2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::base32uint2;
+SELECT '3'::crockford2 + '4'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::base32uint2;
+SELECT '5'::crockford2 + '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '1ZZZ'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint2
+SELECT '1ZZZ'::crockford2 + '1ZZZ'::crockford2;
+ERROR:  crockford2 out of range
+SELECT pg_typeof('1'::crockford2 - '1'::crockford2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::base32uint2;
+SELECT '1'::crockford2 - '1'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT '5'::base32uint2 - '2'::base32uint2;
+SELECT '3'::crockford2 - '4'::crockford2;
+ERROR:  crockford2 out of range
+SELECT '5'::crockford2 - '2'::crockford2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1'::base32uint2 < '1'::base32uint4;
+SELECT '1'::crockford2 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::base32uint4;
+SELECT '5'::crockford2 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::base32uint4;
+SELECT '3'::crockford2 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::base32uint4;
+SELECT '1'::crockford2 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::base32uint4;
+SELECT '5'::crockford2 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::base32uint4;
+SELECT '3'::crockford2 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::base32uint4;
+SELECT '1'::crockford2 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::base32uint4;
+SELECT '5'::crockford2 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::base32uint4;
+SELECT '3'::crockford2 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::base32uint4;
+SELECT '1'::crockford2 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::base32uint4;
+SELECT '5'::crockford2 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::base32uint4;
+SELECT '3'::crockford2 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::base32uint4;
+SELECT '1'::crockford2 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::base32uint4;
+SELECT '5'::crockford2 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::base32uint4;
+SELECT '3'::crockford2 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::base32uint4;
+SELECT '1'::crockford2 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::base32uint4;
+SELECT '5'::crockford2 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::base32uint4;
+SELECT '3'::crockford2 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2base32uint4cmp('1'::base32uint2, '1'::base32uint4);
- btbase32uint2base32uint4cmp 
------------------------------
-                           0
+SELECT btcrockford2crockford4cmp('1'::crockford2, '1'::crockford4);
+ btcrockford2crockford4cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint2base32uint4cmp('5'::base32uint2, '2'::base32uint4);
- btbase32uint2base32uint4cmp 
------------------------------
-                           1
+SELECT btcrockford2crockford4cmp('5'::crockford2, '2'::crockford4);
+ btcrockford2crockford4cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint2base32uint4cmp('3'::base32uint2, '4'::base32uint4);
- btbase32uint2base32uint4cmp 
------------------------------
-                          -1
+SELECT btcrockford2crockford4cmp('3'::crockford2, '4'::crockford4);
+ btcrockford2crockford4cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::crockford2 + '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::base32uint4;
+SELECT '1'::crockford2 + '1'::crockford4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::base32uint4;
+SELECT '3'::crockford2 + '4'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::base32uint4;
+SELECT '5'::crockford2 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '3ZZZZZZ'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT '1ZZZ'::crockford2 + '3ZZZZZZ'::crockford4;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::crockford2 - '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::base32uint4;
+SELECT '1'::crockford2 - '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint2 - '2'::base32uint4;
+SELECT '3'::crockford2 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford2 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint2 AS base32uint4);
- base32uint4 
--------------
+SELECT CAST('5'::crockford2 AS crockford4);
+ crockford4 
+------------
  5
 (1 row)
 
-SELECT '1'::base32uint2 < '1'::base32uint8;
+SELECT '1'::crockford2 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::base32uint8;
+SELECT '5'::crockford2 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::base32uint8;
+SELECT '3'::crockford2 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::base32uint8;
+SELECT '1'::crockford2 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::base32uint8;
+SELECT '5'::crockford2 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::base32uint8;
+SELECT '3'::crockford2 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::base32uint8;
+SELECT '1'::crockford2 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::base32uint8;
+SELECT '5'::crockford2 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::base32uint8;
+SELECT '3'::crockford2 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::base32uint8;
+SELECT '1'::crockford2 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::base32uint8;
+SELECT '5'::crockford2 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::base32uint8;
+SELECT '3'::crockford2 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::base32uint8;
+SELECT '1'::crockford2 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::base32uint8;
+SELECT '5'::crockford2 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::base32uint8;
+SELECT '3'::crockford2 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::base32uint8;
+SELECT '1'::crockford2 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::base32uint8;
+SELECT '5'::crockford2 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::base32uint8;
+SELECT '3'::crockford2 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2base32uint8cmp('1'::base32uint2, '1'::base32uint8);
- btbase32uint2base32uint8cmp 
------------------------------
-                           0
+SELECT btcrockford2crockford8cmp('1'::crockford2, '1'::crockford8);
+ btcrockford2crockford8cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint2base32uint8cmp('5'::base32uint2, '2'::base32uint8);
- btbase32uint2base32uint8cmp 
------------------------------
-                           1
+SELECT btcrockford2crockford8cmp('5'::crockford2, '2'::crockford8);
+ btcrockford2crockford8cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint2base32uint8cmp('3'::base32uint2, '4'::base32uint8);
- btbase32uint2base32uint8cmp 
------------------------------
-                          -1
+SELECT btcrockford2crockford8cmp('3'::crockford2, '4'::crockford8);
+ btcrockford2crockford8cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford2 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::base32uint8;
+SELECT '1'::crockford2 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::base32uint8;
+SELECT '3'::crockford2 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::base32uint8;
+SELECT '5'::crockford2 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT '1ZZZ'::crockford2 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford2 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::base32uint8;
+SELECT '1'::crockford2 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint2 - '2'::base32uint8;
+SELECT '3'::crockford2 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford2 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint2 AS base32uint8);
- base32uint8 
--------------
+SELECT CAST('5'::crockford2 AS crockford8);
+ crockford8 
+------------
  5
 (1 row)
 
-SELECT '1'::base32uint2 < '1'::int2;
+SELECT '1'::crockford2 < '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::int2;
+SELECT '5'::crockford2 < '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::int2;
+SELECT '3'::crockford2 < '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::int2;
+SELECT '1'::crockford2 <= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::int2;
+SELECT '5'::crockford2 <= '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::int2;
+SELECT '3'::crockford2 <= '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::int2;
+SELECT '1'::crockford2 = '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::int2;
+SELECT '5'::crockford2 = '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::int2;
+SELECT '3'::crockford2 = '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::int2;
+SELECT '1'::crockford2 <> '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::int2;
+SELECT '5'::crockford2 <> '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::int2;
+SELECT '3'::crockford2 <> '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::int2;
+SELECT '1'::crockford2 >= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::int2;
+SELECT '5'::crockford2 >= '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::int2;
+SELECT '3'::crockford2 >= '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::int2;
+SELECT '1'::crockford2 > '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::int2;
+SELECT '5'::crockford2 > '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::int2;
+SELECT '3'::crockford2 > '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2int2cmp('1'::base32uint2, '1'::int2);
- btbase32uint2int2cmp 
-----------------------
-                    0
+SELECT btcrockford2int2cmp('1'::crockford2, '1'::int2);
+ btcrockford2int2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint2int2cmp('5'::base32uint2, '2'::int2);
- btbase32uint2int2cmp 
-----------------------
-                    1
+SELECT btcrockford2int2cmp('5'::crockford2, '2'::int2);
+ btcrockford2int2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint2int2cmp('3'::base32uint2, '4'::int2);
- btbase32uint2int2cmp 
-----------------------
-                   -1
+SELECT btcrockford2int2cmp('3'::crockford2, '4'::int2);
+ btcrockford2int2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::int2);
-  pg_typeof  
--------------
- base32uint2
+SELECT pg_typeof('1'::crockford2 + '1'::int2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::int2;
+SELECT '1'::crockford2 + '1'::int2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::int2;
+SELECT '3'::crockford2 + '4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::int2;
+SELECT '5'::crockford2 + '2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint2 + '-4'::int2;
-ERROR:  base32uint2 out of range
-SELECT '5'::base32uint2 + '-2'::int2;
+SELECT '3'::crockford2 + '-4'::int2;
+ERROR:  crockford2 out of range
+SELECT '5'::crockford2 + '-2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '32767'::int2;
-ERROR:  base32uint2 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::int2);
-  pg_typeof  
--------------
- base32uint2
+SELECT '1ZZZ'::crockford2 + '32767'::int2;
+ERROR:  crockford2 out of range
+SELECT pg_typeof('1'::crockford2 - '1'::int2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::int2;
+SELECT '1'::crockford2 - '1'::int2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::int2;
-ERROR:  base32uint2 out of range
-SELECT '5'::base32uint2 - '2'::int2;
+SELECT '3'::crockford2 - '4'::int2;
+ERROR:  crockford2 out of range
+SELECT '5'::crockford2 - '2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint2 - '-4'::int2;
+SELECT '3'::crockford2 - '-4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 - '-2'::int2;
+SELECT '5'::crockford2 - '-2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint2 AS int2);
+SELECT CAST('5'::crockford2 AS int2);
  int2 
 ------
     5
 (1 row)
 
-SELECT CAST('40000'::base32uint2 AS int2);
-ERROR:  value "40000" is out of range for type base32int2
-LINE 1: SELECT CAST('40000'::base32uint2 AS int2);
+SELECT CAST('40000'::crockford2 AS int2);
+ERROR:  value "40000" is out of range for type crockfordint2
+LINE 1: SELECT CAST('40000'::crockford2 AS int2);
                     ^
-SELECT '1'::base32uint2 < '1'::int4;
+SELECT '1'::crockford2 < '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::int4;
+SELECT '5'::crockford2 < '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::int4;
+SELECT '3'::crockford2 < '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::int4;
+SELECT '1'::crockford2 <= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::int4;
+SELECT '5'::crockford2 <= '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::int4;
+SELECT '3'::crockford2 <= '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::int4;
+SELECT '1'::crockford2 = '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::int4;
+SELECT '5'::crockford2 = '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::int4;
+SELECT '3'::crockford2 = '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::int4;
+SELECT '1'::crockford2 <> '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::int4;
+SELECT '5'::crockford2 <> '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::int4;
+SELECT '3'::crockford2 <> '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::int4;
+SELECT '1'::crockford2 >= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::int4;
+SELECT '5'::crockford2 >= '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::int4;
+SELECT '3'::crockford2 >= '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::int4;
+SELECT '1'::crockford2 > '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::int4;
+SELECT '5'::crockford2 > '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::int4;
+SELECT '3'::crockford2 > '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2int4cmp('1'::base32uint2, '1'::int4);
- btbase32uint2int4cmp 
-----------------------
-                    0
+SELECT btcrockford2int4cmp('1'::crockford2, '1'::int4);
+ btcrockford2int4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint2int4cmp('5'::base32uint2, '2'::int4);
- btbase32uint2int4cmp 
-----------------------
-                    1
+SELECT btcrockford2int4cmp('5'::crockford2, '2'::int4);
+ btcrockford2int4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint2int4cmp('3'::base32uint2, '4'::int4);
- btbase32uint2int4cmp 
-----------------------
-                   -1
+SELECT btcrockford2int4cmp('3'::crockford2, '4'::int4);
+ btcrockford2int4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::int4);
+SELECT pg_typeof('1'::crockford2 + '1'::int4);
  pg_typeof 
 -----------
  integer
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::int4;
+SELECT '1'::crockford2 + '1'::int4;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::int4;
+SELECT '3'::crockford2 + '4'::int4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::int4;
+SELECT '5'::crockford2 + '2'::int4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '3'::base32uint2 + '-4'::int4;
+SELECT '3'::crockford2 + '-4'::int4;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint2 + '-2'::int4;
+SELECT '5'::crockford2 + '-2'::int4;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '2147483647'::int4;
+SELECT '1ZZZ'::crockford2 + '2147483647'::int4;
 ERROR:  int4 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::int4);
+SELECT pg_typeof('1'::crockford2 - '1'::int4);
  pg_typeof 
 -----------
  integer
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::int4;
+SELECT '1'::crockford2 - '1'::int4;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::int4;
+SELECT '3'::crockford2 - '4'::int4;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint2 - '2'::int4;
+SELECT '5'::crockford2 - '2'::int4;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '3'::base32uint2 - '-4'::int4;
+SELECT '3'::crockford2 - '-4'::int4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint2 - '-2'::int4;
+SELECT '5'::crockford2 - '-2'::int4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT CAST('5'::base32uint2 AS int4);
+SELECT CAST('5'::crockford2 AS int4);
  int4 
 ------
     5
 (1 row)
 
-SELECT '1'::base32uint2 < '1'::int8;
+SELECT '1'::crockford2 < '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 < '2'::int8;
+SELECT '5'::crockford2 < '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 < '4'::int8;
+SELECT '3'::crockford2 < '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 <= '1'::int8;
+SELECT '1'::crockford2 <= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 <= '2'::int8;
+SELECT '5'::crockford2 <= '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 <= '4'::int8;
+SELECT '3'::crockford2 <= '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 = '1'::int8;
+SELECT '1'::crockford2 = '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 = '2'::int8;
+SELECT '5'::crockford2 = '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint2 = '4'::int8;
+SELECT '3'::crockford2 = '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 <> '1'::int8;
+SELECT '1'::crockford2 <> '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 <> '2'::int8;
+SELECT '5'::crockford2 <> '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 <> '4'::int8;
+SELECT '3'::crockford2 <> '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint2 >= '1'::int8;
+SELECT '1'::crockford2 >= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint2 >= '2'::int8;
+SELECT '5'::crockford2 >= '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 >= '4'::int8;
+SELECT '3'::crockford2 >= '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint2 > '1'::int8;
+SELECT '1'::crockford2 > '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint2 > '2'::int8;
+SELECT '5'::crockford2 > '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint2 > '4'::int8;
+SELECT '3'::crockford2 > '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint2int8cmp('1'::base32uint2, '1'::int8);
- btbase32uint2int8cmp 
-----------------------
-                    0
+SELECT btcrockford2int8cmp('1'::crockford2, '1'::int8);
+ btcrockford2int8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint2int8cmp('5'::base32uint2, '2'::int8);
- btbase32uint2int8cmp 
-----------------------
-                    1
+SELECT btcrockford2int8cmp('5'::crockford2, '2'::int8);
+ btcrockford2int8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint2int8cmp('3'::base32uint2, '4'::int8);
- btbase32uint2int8cmp 
-----------------------
-                   -1
+SELECT btcrockford2int8cmp('3'::crockford2, '4'::int8);
+ btcrockford2int8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint2 + '1'::int8);
+SELECT pg_typeof('1'::crockford2 + '1'::int8);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::base32uint2 + '1'::int8;
+SELECT '1'::crockford2 + '1'::int8;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::base32uint2 + '4'::int8;
+SELECT '3'::crockford2 + '4'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint2 + '2'::int8;
+SELECT '5'::crockford2 + '2'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '3'::base32uint2 + '-4'::int8;
+SELECT '3'::crockford2 + '-4'::int8;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint2 + '-2'::int8;
+SELECT '5'::crockford2 + '-2'::int8;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '1ZZZ'::base32uint2 + '9223372036854775807'::int8;
+SELECT '1ZZZ'::crockford2 + '9223372036854775807'::int8;
 ERROR:  int8 out of range
-SELECT pg_typeof('1'::base32uint2 - '1'::int8);
+SELECT pg_typeof('1'::crockford2 - '1'::int8);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::base32uint2 - '1'::int8;
+SELECT '1'::crockford2 - '1'::int8;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::base32uint2 - '4'::int8;
+SELECT '3'::crockford2 - '4'::int8;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint2 - '2'::int8;
+SELECT '5'::crockford2 - '2'::int8;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '3'::base32uint2 - '-4'::int8;
+SELECT '3'::crockford2 - '-4'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint2 - '-2'::int8;
+SELECT '5'::crockford2 - '-2'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT CAST('5'::base32uint2 AS int8);
+SELECT CAST('5'::crockford2 AS int8);
  int8 
 ------
     5
 (1 row)
 
-SELECT '2'::base32uint4 < 5;
+SELECT '2'::crockford4 < 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 < '5'::base32uint4;
+SELECT 2 < '5'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 < 2;
+SELECT '5'::crockford4 < 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 < '2'::base32uint4;
+SELECT 5 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint4 <= 5;
+SELECT '2'::crockford4 <= 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <= '5'::base32uint4;
+SELECT 2 <= '5'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= 2;
+SELECT '5'::crockford4 <= 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 <= '2'::base32uint4;
+SELECT 5 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint4 = 5;
+SELECT '2'::crockford4 = 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 = '5'::base32uint4;
+SELECT 2 = '5'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 = 2;
+SELECT '5'::crockford4 = 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 = '2'::base32uint4;
+SELECT 5 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint4 <> 5;
+SELECT '2'::crockford4 <> 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <> '5'::base32uint4;
+SELECT 2 <> '5'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <> 2;
+SELECT '5'::crockford4 <> 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 <> '2'::base32uint4;
+SELECT 5 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint4 >= 5;
+SELECT '2'::crockford4 >= 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 >= '5'::base32uint4;
+SELECT 2 >= '5'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 >= 2;
+SELECT '5'::crockford4 >= 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 >= '2'::base32uint4;
+SELECT 5 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint4 > 5;
+SELECT '2'::crockford4 > 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 > '5'::base32uint4;
+SELECT 2 > '5'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > 2;
+SELECT '5'::crockford4 > 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 > '2'::base32uint4;
+SELECT 5 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint4 + 5;
+SELECT '2'::crockford4 + 5;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 2 + '5'::base32uint4;
+SELECT 2 + '5'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + 2;
+SELECT '5'::crockford4 + 2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 5 + '2'::base32uint4;
+SELECT 5 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '2'::base32uint4 - 5;
-ERROR:  base32uint4 out of range
-SELECT 2 - '5'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 - 2;
+SELECT '2'::crockford4 - 5;
+ERROR:  crockford4 out of range
+SELECT 2 - '5'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 - 2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT 5 - '2'::base32uint4;
+SELECT 5 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1'::base32uint4 < '1'::base32uint2;
+SELECT '1'::crockford4 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::base32uint2;
+SELECT '5'::crockford4 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::base32uint2;
+SELECT '3'::crockford4 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::base32uint2;
+SELECT '1'::crockford4 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::base32uint2;
+SELECT '5'::crockford4 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::base32uint2;
+SELECT '3'::crockford4 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::base32uint2;
+SELECT '1'::crockford4 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::base32uint2;
+SELECT '5'::crockford4 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::base32uint2;
+SELECT '3'::crockford4 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::base32uint2;
+SELECT '1'::crockford4 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::base32uint2;
+SELECT '5'::crockford4 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::base32uint2;
+SELECT '3'::crockford4 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::base32uint2;
+SELECT '1'::crockford4 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::base32uint2;
+SELECT '5'::crockford4 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::base32uint2;
+SELECT '3'::crockford4 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::base32uint2;
+SELECT '1'::crockford4 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::base32uint2;
+SELECT '5'::crockford4 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::base32uint2;
+SELECT '3'::crockford4 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4base32uint2cmp('1'::base32uint4, '1'::base32uint2);
- btbase32uint4base32uint2cmp 
------------------------------
-                           0
+SELECT btcrockford4crockford2cmp('1'::crockford4, '1'::crockford2);
+ btcrockford4crockford2cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint4base32uint2cmp('5'::base32uint4, '2'::base32uint2);
- btbase32uint4base32uint2cmp 
------------------------------
-                           1
+SELECT btcrockford4crockford2cmp('5'::crockford4, '2'::crockford2);
+ btcrockford4crockford2cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint4base32uint2cmp('3'::base32uint4, '4'::base32uint2);
- btbase32uint4base32uint2cmp 
------------------------------
-                          -1
+SELECT btcrockford4crockford2cmp('3'::crockford4, '4'::crockford2);
+ btcrockford4crockford2cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::crockford4 + '1'::crockford2);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::base32uint2;
+SELECT '1'::crockford4 + '1'::crockford2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::base32uint2;
+SELECT '3'::crockford4 + '4'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::base32uint2;
+SELECT '5'::crockford4 + '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '1ZZZ'::base32uint2;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint4
+SELECT '3ZZZZZZ'::crockford4 + '1ZZZ'::crockford2;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::crockford4 - '1'::crockford2);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::base32uint2;
+SELECT '1'::crockford4 - '1'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::base32uint2;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 - '2'::base32uint2;
+SELECT '3'::crockford4 - '4'::crockford2;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 - '2'::crockford2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint4 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('5'::crockford4 AS crockford2);
+ crockford2 
+------------
  5
 (1 row)
 
-SELECT CAST('2000'::base32uint4 AS base32uint2);
-ERROR:  base32uint2 out of range
-SELECT '1'::base32uint4 < '1'::base32uint4;
+SELECT CAST('2000'::crockford4 AS crockford2);
+ERROR:  crockford2 out of range
+SELECT '1'::crockford4 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::base32uint4;
+SELECT '5'::crockford4 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::base32uint4;
+SELECT '3'::crockford4 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::base32uint4;
+SELECT '1'::crockford4 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::base32uint4;
+SELECT '5'::crockford4 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::base32uint4;
+SELECT '3'::crockford4 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::base32uint4;
+SELECT '1'::crockford4 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::base32uint4;
+SELECT '5'::crockford4 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::base32uint4;
+SELECT '3'::crockford4 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::base32uint4;
+SELECT '1'::crockford4 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::base32uint4;
+SELECT '5'::crockford4 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::base32uint4;
+SELECT '3'::crockford4 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::base32uint4;
+SELECT '1'::crockford4 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::base32uint4;
+SELECT '5'::crockford4 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::base32uint4;
+SELECT '3'::crockford4 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::base32uint4;
+SELECT '1'::crockford4 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::base32uint4;
+SELECT '5'::crockford4 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::base32uint4;
+SELECT '3'::crockford4 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4base32uint4cmp('1'::base32uint4, '1'::base32uint4);
- btbase32uint4base32uint4cmp 
------------------------------
-                           0
+SELECT btcrockford4crockford4cmp('1'::crockford4, '1'::crockford4);
+ btcrockford4crockford4cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint4base32uint4cmp('5'::base32uint4, '2'::base32uint4);
- btbase32uint4base32uint4cmp 
------------------------------
-                           1
+SELECT btcrockford4crockford4cmp('5'::crockford4, '2'::crockford4);
+ btcrockford4crockford4cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint4base32uint4cmp('3'::base32uint4, '4'::base32uint4);
- btbase32uint4base32uint4cmp 
------------------------------
-                          -1
+SELECT btcrockford4crockford4cmp('3'::crockford4, '4'::crockford4);
+ btcrockford4crockford4cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::crockford4 + '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::base32uint4;
+SELECT '1'::crockford4 + '1'::crockford4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::base32uint4;
+SELECT '3'::crockford4 + '4'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::base32uint4;
+SELECT '5'::crockford4 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '3ZZZZZZ'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT '3ZZZZZZ'::crockford4 + '3ZZZZZZ'::crockford4;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::crockford4 - '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::base32uint4;
+SELECT '1'::crockford4 - '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 - '2'::base32uint4;
+SELECT '3'::crockford4 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1'::base32uint4 < '1'::base32uint8;
+SELECT '1'::crockford4 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::base32uint8;
+SELECT '5'::crockford4 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::base32uint8;
+SELECT '3'::crockford4 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::base32uint8;
+SELECT '1'::crockford4 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::base32uint8;
+SELECT '5'::crockford4 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::base32uint8;
+SELECT '3'::crockford4 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::base32uint8;
+SELECT '1'::crockford4 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::base32uint8;
+SELECT '5'::crockford4 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::base32uint8;
+SELECT '3'::crockford4 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::base32uint8;
+SELECT '1'::crockford4 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::base32uint8;
+SELECT '5'::crockford4 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::base32uint8;
+SELECT '3'::crockford4 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::base32uint8;
+SELECT '1'::crockford4 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::base32uint8;
+SELECT '5'::crockford4 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::base32uint8;
+SELECT '3'::crockford4 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::base32uint8;
+SELECT '1'::crockford4 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::base32uint8;
+SELECT '5'::crockford4 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::base32uint8;
+SELECT '3'::crockford4 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4base32uint8cmp('1'::base32uint4, '1'::base32uint8);
- btbase32uint4base32uint8cmp 
------------------------------
-                           0
+SELECT btcrockford4crockford8cmp('1'::crockford4, '1'::crockford8);
+ btcrockford4crockford8cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint4base32uint8cmp('5'::base32uint4, '2'::base32uint8);
- btbase32uint4base32uint8cmp 
------------------------------
-                           1
+SELECT btcrockford4crockford8cmp('5'::crockford4, '2'::crockford8);
+ btcrockford4crockford8cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint4base32uint8cmp('3'::base32uint4, '4'::base32uint8);
- btbase32uint4base32uint8cmp 
------------------------------
-                          -1
+SELECT btcrockford4crockford8cmp('3'::crockford4, '4'::crockford8);
+ btcrockford4crockford8cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford4 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::base32uint8;
+SELECT '1'::crockford4 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::base32uint8;
+SELECT '3'::crockford4 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::base32uint8;
+SELECT '5'::crockford4 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT '3ZZZZZZ'::crockford4 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford4 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::base32uint8;
+SELECT '1'::crockford4 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint4 - '2'::base32uint8;
+SELECT '3'::crockford4 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford4 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint4 AS base32uint8);
- base32uint8 
--------------
+SELECT CAST('5'::crockford4 AS crockford8);
+ crockford8 
+------------
  5
 (1 row)
 
-SELECT '1'::base32uint4 < '1'::int2;
+SELECT '1'::crockford4 < '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::int2;
+SELECT '5'::crockford4 < '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::int2;
+SELECT '3'::crockford4 < '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::int2;
+SELECT '1'::crockford4 <= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::int2;
+SELECT '5'::crockford4 <= '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::int2;
+SELECT '3'::crockford4 <= '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::int2;
+SELECT '1'::crockford4 = '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::int2;
+SELECT '5'::crockford4 = '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::int2;
+SELECT '3'::crockford4 = '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::int2;
+SELECT '1'::crockford4 <> '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::int2;
+SELECT '5'::crockford4 <> '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::int2;
+SELECT '3'::crockford4 <> '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::int2;
+SELECT '1'::crockford4 >= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::int2;
+SELECT '5'::crockford4 >= '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::int2;
+SELECT '3'::crockford4 >= '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::int2;
+SELECT '1'::crockford4 > '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::int2;
+SELECT '5'::crockford4 > '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::int2;
+SELECT '3'::crockford4 > '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4int2cmp('1'::base32uint4, '1'::int2);
- btbase32uint4int2cmp 
-----------------------
-                    0
+SELECT btcrockford4int2cmp('1'::crockford4, '1'::int2);
+ btcrockford4int2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint4int2cmp('5'::base32uint4, '2'::int2);
- btbase32uint4int2cmp 
-----------------------
-                    1
+SELECT btcrockford4int2cmp('5'::crockford4, '2'::int2);
+ btcrockford4int2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint4int2cmp('3'::base32uint4, '4'::int2);
- btbase32uint4int2cmp 
-----------------------
-                   -1
+SELECT btcrockford4int2cmp('3'::crockford4, '4'::int2);
+ btcrockford4int2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::int2);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::crockford4 + '1'::int2);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::int2;
+SELECT '1'::crockford4 + '1'::int2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::int2;
+SELECT '3'::crockford4 + '4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::int2;
+SELECT '5'::crockford4 + '2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint4 + '-4'::int2;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 + '-2'::int2;
+SELECT '3'::crockford4 + '-4'::int2;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 + '-2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '32767'::int2;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::int2);
-  pg_typeof  
--------------
- base32uint4
+SELECT '3ZZZZZZ'::crockford4 + '32767'::int2;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::crockford4 - '1'::int2);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::int2;
+SELECT '1'::crockford4 - '1'::int2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::int2;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 - '2'::int2;
+SELECT '3'::crockford4 - '4'::int2;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 - '2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint4 - '-4'::int2;
+SELECT '3'::crockford4 - '-4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 - '-2'::int2;
+SELECT '5'::crockford4 - '-2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint4 AS int2);
+SELECT CAST('5'::crockford4 AS int2);
  int2 
 ------
     5
 (1 row)
 
-SELECT CAST('40000'::base32uint4 AS int2);
+SELECT CAST('40000'::crockford4 AS int2);
 ERROR:  int2 out of range
-SELECT '1'::base32uint4 < '1'::int4;
+SELECT '1'::crockford4 < '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::int4;
+SELECT '5'::crockford4 < '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::int4;
+SELECT '3'::crockford4 < '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::int4;
+SELECT '1'::crockford4 <= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::int4;
+SELECT '5'::crockford4 <= '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::int4;
+SELECT '3'::crockford4 <= '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::int4;
+SELECT '1'::crockford4 = '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::int4;
+SELECT '5'::crockford4 = '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::int4;
+SELECT '3'::crockford4 = '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::int4;
+SELECT '1'::crockford4 <> '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::int4;
+SELECT '5'::crockford4 <> '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::int4;
+SELECT '3'::crockford4 <> '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::int4;
+SELECT '1'::crockford4 >= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::int4;
+SELECT '5'::crockford4 >= '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::int4;
+SELECT '3'::crockford4 >= '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::int4;
+SELECT '1'::crockford4 > '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::int4;
+SELECT '5'::crockford4 > '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::int4;
+SELECT '3'::crockford4 > '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4int4cmp('1'::base32uint4, '1'::int4);
- btbase32uint4int4cmp 
-----------------------
-                    0
+SELECT btcrockford4int4cmp('1'::crockford4, '1'::int4);
+ btcrockford4int4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint4int4cmp('5'::base32uint4, '2'::int4);
- btbase32uint4int4cmp 
-----------------------
-                    1
+SELECT btcrockford4int4cmp('5'::crockford4, '2'::int4);
+ btcrockford4int4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint4int4cmp('3'::base32uint4, '4'::int4);
- btbase32uint4int4cmp 
-----------------------
-                   -1
+SELECT btcrockford4int4cmp('3'::crockford4, '4'::int4);
+ btcrockford4int4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::int4);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::crockford4 + '1'::int4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::int4;
+SELECT '1'::crockford4 + '1'::int4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::int4;
+SELECT '3'::crockford4 + '4'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::int4;
+SELECT '5'::crockford4 + '2'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint4 + '-4'::int4;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 + '-2'::int4;
+SELECT '3'::crockford4 + '-4'::int4;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 + '-2'::int4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '2147483647'::int4;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::int4);
-  pg_typeof  
--------------
- base32uint4
+SELECT '3ZZZZZZ'::crockford4 + '2147483647'::int4;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::crockford4 - '1'::int4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::int4;
+SELECT '1'::crockford4 - '1'::int4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::int4;
-ERROR:  base32uint4 out of range
-SELECT '5'::base32uint4 - '2'::int4;
+SELECT '3'::crockford4 - '4'::int4;
+ERROR:  crockford4 out of range
+SELECT '5'::crockford4 - '2'::int4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint4 - '-4'::int4;
+SELECT '3'::crockford4 - '-4'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 - '-2'::int4;
+SELECT '5'::crockford4 - '-2'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint4 AS int4);
+SELECT CAST('5'::crockford4 AS int4);
  int4 
 ------
     5
 (1 row)
 
-SELECT CAST('3000000000'::base32uint4 AS int4);
-ERROR:  value "3000000000" is out of range for type base32int4
-LINE 1: SELECT CAST('3000000000'::base32uint4 AS int4);
+SELECT CAST('3000000000'::crockford4 AS int4);
+ERROR:  value "3000000000" is out of range for type crockfordint4
+LINE 1: SELECT CAST('3000000000'::crockford4 AS int4);
                     ^
-SELECT '1'::base32uint4 < '1'::int8;
+SELECT '1'::crockford4 < '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 < '2'::int8;
+SELECT '5'::crockford4 < '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 < '4'::int8;
+SELECT '3'::crockford4 < '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 <= '1'::int8;
+SELECT '1'::crockford4 <= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 <= '2'::int8;
+SELECT '5'::crockford4 <= '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 <= '4'::int8;
+SELECT '3'::crockford4 <= '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 = '1'::int8;
+SELECT '1'::crockford4 = '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 = '2'::int8;
+SELECT '5'::crockford4 = '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint4 = '4'::int8;
+SELECT '3'::crockford4 = '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 <> '1'::int8;
+SELECT '1'::crockford4 <> '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 <> '2'::int8;
+SELECT '5'::crockford4 <> '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 <> '4'::int8;
+SELECT '3'::crockford4 <> '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint4 >= '1'::int8;
+SELECT '1'::crockford4 >= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint4 >= '2'::int8;
+SELECT '5'::crockford4 >= '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 >= '4'::int8;
+SELECT '3'::crockford4 >= '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint4 > '1'::int8;
+SELECT '1'::crockford4 > '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint4 > '2'::int8;
+SELECT '5'::crockford4 > '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint4 > '4'::int8;
+SELECT '3'::crockford4 > '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint4int8cmp('1'::base32uint4, '1'::int8);
- btbase32uint4int8cmp 
-----------------------
-                    0
+SELECT btcrockford4int8cmp('1'::crockford4, '1'::int8);
+ btcrockford4int8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint4int8cmp('5'::base32uint4, '2'::int8);
- btbase32uint4int8cmp 
-----------------------
-                    1
+SELECT btcrockford4int8cmp('5'::crockford4, '2'::int8);
+ btcrockford4int8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint4int8cmp('3'::base32uint4, '4'::int8);
- btbase32uint4int8cmp 
-----------------------
-                   -1
+SELECT btcrockford4int8cmp('3'::crockford4, '4'::int8);
+ btcrockford4int8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint4 + '1'::int8);
+SELECT pg_typeof('1'::crockford4 + '1'::int8);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::base32uint4 + '1'::int8;
+SELECT '1'::crockford4 + '1'::int8;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::base32uint4 + '4'::int8;
+SELECT '3'::crockford4 + '4'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint4 + '2'::int8;
+SELECT '5'::crockford4 + '2'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '3'::base32uint4 + '-4'::int8;
+SELECT '3'::crockford4 + '-4'::int8;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint4 + '-2'::int8;
+SELECT '5'::crockford4 + '-2'::int8;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '3ZZZZZZ'::base32uint4 + '9223372036854775807'::int8;
+SELECT '3ZZZZZZ'::crockford4 + '9223372036854775807'::int8;
 ERROR:  int8 out of range
-SELECT pg_typeof('1'::base32uint4 - '1'::int8);
+SELECT pg_typeof('1'::crockford4 - '1'::int8);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::base32uint4 - '1'::int8;
+SELECT '1'::crockford4 - '1'::int8;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::base32uint4 - '4'::int8;
+SELECT '3'::crockford4 - '4'::int8;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::base32uint4 - '2'::int8;
+SELECT '5'::crockford4 - '2'::int8;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '3'::base32uint4 - '-4'::int8;
+SELECT '3'::crockford4 - '-4'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::base32uint4 - '-2'::int8;
+SELECT '5'::crockford4 - '-2'::int8;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT CAST('5'::base32uint4 AS int8);
+SELECT CAST('5'::crockford4 AS int8);
  int8 
 ------
     5
 (1 row)
 
-SELECT '2'::base32uint8 < 5;
+SELECT '2'::crockford8 < 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 < '5'::base32uint8;
+SELECT 2 < '5'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 < 2;
+SELECT '5'::crockford8 < 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 < '2'::base32uint8;
+SELECT 5 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint8 <= 5;
+SELECT '2'::crockford8 <= 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <= '5'::base32uint8;
+SELECT 2 <= '5'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= 2;
+SELECT '5'::crockford8 <= 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 <= '2'::base32uint8;
+SELECT 5 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint8 = 5;
+SELECT '2'::crockford8 = 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 = '5'::base32uint8;
+SELECT 2 = '5'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 = 2;
+SELECT '5'::crockford8 = 2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 5 = '2'::base32uint8;
+SELECT 5 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '2'::base32uint8 <> 5;
+SELECT '2'::crockford8 <> 5;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 2 <> '5'::base32uint8;
+SELECT 2 <> '5'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <> 2;
+SELECT '5'::crockford8 <> 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 <> '2'::base32uint8;
+SELECT 5 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint8 >= 5;
+SELECT '2'::crockford8 >= 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 >= '5'::base32uint8;
+SELECT 2 >= '5'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 >= 2;
+SELECT '5'::crockford8 >= 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 >= '2'::base32uint8;
+SELECT 5 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint8 > 5;
+SELECT '2'::crockford8 > 5;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT 2 > '5'::base32uint8;
+SELECT 2 > '5'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > 2;
+SELECT '5'::crockford8 > 2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT 5 > '2'::base32uint8;
+SELECT 5 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '2'::base32uint8 + 5;
+SELECT '2'::crockford8 + 5;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 2 + '5'::base32uint8;
+SELECT 2 + '5'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + 2;
+SELECT '5'::crockford8 + 2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 5 + '2'::base32uint8;
+SELECT 5 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '2'::base32uint8 - 5;
-ERROR:  base32uint8 out of range
-SELECT 2 - '5'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - 2;
+SELECT '2'::crockford8 - 5;
+ERROR:  crockford8 out of range
+SELECT 2 - '5'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - 2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT 5 - '2'::base32uint8;
+SELECT 5 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1'::base32uint8 < '1'::base32uint2;
+SELECT '1'::crockford8 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::base32uint2;
+SELECT '5'::crockford8 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::base32uint2;
+SELECT '3'::crockford8 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::base32uint2;
+SELECT '1'::crockford8 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::base32uint2;
+SELECT '5'::crockford8 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::base32uint2;
+SELECT '3'::crockford8 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::base32uint2;
+SELECT '1'::crockford8 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::base32uint2;
+SELECT '5'::crockford8 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::base32uint2;
+SELECT '3'::crockford8 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::base32uint2;
+SELECT '1'::crockford8 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::base32uint2;
+SELECT '5'::crockford8 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::base32uint2;
+SELECT '3'::crockford8 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::base32uint2;
+SELECT '1'::crockford8 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::base32uint2;
+SELECT '5'::crockford8 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::base32uint2;
+SELECT '3'::crockford8 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::base32uint2;
+SELECT '1'::crockford8 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::base32uint2;
+SELECT '5'::crockford8 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::base32uint2;
+SELECT '3'::crockford8 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8base32uint2cmp('1'::base32uint8, '1'::base32uint2);
- btbase32uint8base32uint2cmp 
------------------------------
-                           0
+SELECT btcrockford8crockford2cmp('1'::crockford8, '1'::crockford2);
+ btcrockford8crockford2cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint8base32uint2cmp('5'::base32uint8, '2'::base32uint2);
- btbase32uint8base32uint2cmp 
------------------------------
-                           1
+SELECT btcrockford8crockford2cmp('5'::crockford8, '2'::crockford2);
+ btcrockford8crockford2cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint8base32uint2cmp('3'::base32uint8, '4'::base32uint2);
- btbase32uint8base32uint2cmp 
------------------------------
-                          -1
+SELECT btcrockford8crockford2cmp('3'::crockford8, '4'::crockford2);
+ btcrockford8crockford2cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::crockford2);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::base32uint2;
+SELECT '1'::crockford8 + '1'::crockford2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::base32uint2;
+SELECT '3'::crockford8 + '4'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::base32uint2;
+SELECT '5'::crockford8 + '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '1ZZZ'::base32uint2;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + '1ZZZ'::crockford2;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::crockford2);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::base32uint2;
+SELECT '1'::crockford8 - '1'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::base32uint2;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::base32uint2;
+SELECT '3'::crockford8 - '4'::crockford2;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::crockford2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint8 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('5'::crockford8 AS crockford2);
+ crockford2 
+------------
  5
 (1 row)
 
-SELECT CAST('2000'::base32uint8 AS base32uint2);
-ERROR:  base32uint2 out of range
-SELECT '1'::base32uint8 < '1'::base32uint4;
+SELECT CAST('2000'::crockford8 AS crockford2);
+ERROR:  crockford2 out of range
+SELECT '1'::crockford8 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::base32uint4;
+SELECT '5'::crockford8 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::base32uint4;
+SELECT '3'::crockford8 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::base32uint4;
+SELECT '1'::crockford8 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::base32uint4;
+SELECT '5'::crockford8 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::base32uint4;
+SELECT '3'::crockford8 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::base32uint4;
+SELECT '1'::crockford8 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::base32uint4;
+SELECT '5'::crockford8 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::base32uint4;
+SELECT '3'::crockford8 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::base32uint4;
+SELECT '1'::crockford8 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::base32uint4;
+SELECT '5'::crockford8 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::base32uint4;
+SELECT '3'::crockford8 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::base32uint4;
+SELECT '1'::crockford8 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::base32uint4;
+SELECT '5'::crockford8 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::base32uint4;
+SELECT '3'::crockford8 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::base32uint4;
+SELECT '1'::crockford8 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::base32uint4;
+SELECT '5'::crockford8 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::base32uint4;
+SELECT '3'::crockford8 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8base32uint4cmp('1'::base32uint8, '1'::base32uint4);
- btbase32uint8base32uint4cmp 
------------------------------
-                           0
+SELECT btcrockford8crockford4cmp('1'::crockford8, '1'::crockford4);
+ btcrockford8crockford4cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint8base32uint4cmp('5'::base32uint8, '2'::base32uint4);
- btbase32uint8base32uint4cmp 
------------------------------
-                           1
+SELECT btcrockford8crockford4cmp('5'::crockford8, '2'::crockford4);
+ btcrockford8crockford4cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint8base32uint4cmp('3'::base32uint8, '4'::base32uint4);
- btbase32uint8base32uint4cmp 
------------------------------
-                          -1
+SELECT btcrockford8crockford4cmp('3'::crockford8, '4'::crockford4);
+ btcrockford8crockford4cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::crockford4);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::base32uint4;
+SELECT '1'::crockford8 + '1'::crockford4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::base32uint4;
+SELECT '3'::crockford8 + '4'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::base32uint4;
+SELECT '5'::crockford8 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '3ZZZZZZ'::base32uint4;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + '3ZZZZZZ'::crockford4;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::crockford4);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::base32uint4;
+SELECT '1'::crockford8 - '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::base32uint4;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::base32uint4;
+SELECT '3'::crockford8 - '4'::crockford4;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT CAST('5'::base32uint8 AS base32uint4);
- base32uint4 
--------------
+SELECT CAST('5'::crockford8 AS crockford4);
+ crockford4 
+------------
  5
 (1 row)
 
-SELECT CAST('4000000'::base32uint8 AS base32uint4);
-ERROR:  base32uint4 out of range
-SELECT '1'::base32uint8 < '1'::base32uint8;
+SELECT CAST('4000000'::crockford8 AS crockford4);
+ERROR:  crockford4 out of range
+SELECT '1'::crockford8 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::base32uint8;
+SELECT '5'::crockford8 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::base32uint8;
+SELECT '3'::crockford8 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::base32uint8;
+SELECT '1'::crockford8 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::base32uint8;
+SELECT '5'::crockford8 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::base32uint8;
+SELECT '3'::crockford8 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::base32uint8;
+SELECT '1'::crockford8 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::base32uint8;
+SELECT '5'::crockford8 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::base32uint8;
+SELECT '3'::crockford8 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::base32uint8;
+SELECT '1'::crockford8 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::base32uint8;
+SELECT '5'::crockford8 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::base32uint8;
+SELECT '3'::crockford8 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::base32uint8;
+SELECT '1'::crockford8 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::base32uint8;
+SELECT '5'::crockford8 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::base32uint8;
+SELECT '3'::crockford8 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::base32uint8;
+SELECT '1'::crockford8 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::base32uint8;
+SELECT '5'::crockford8 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::base32uint8;
+SELECT '3'::crockford8 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8base32uint8cmp('1'::base32uint8, '1'::base32uint8);
- btbase32uint8base32uint8cmp 
------------------------------
-                           0
+SELECT btcrockford8crockford8cmp('1'::crockford8, '1'::crockford8);
+ btcrockford8crockford8cmp 
+---------------------------
+                         0
 (1 row)
 
-SELECT btbase32uint8base32uint8cmp('5'::base32uint8, '2'::base32uint8);
- btbase32uint8base32uint8cmp 
------------------------------
-                           1
+SELECT btcrockford8crockford8cmp('5'::crockford8, '2'::crockford8);
+ btcrockford8crockford8cmp 
+---------------------------
+                         1
 (1 row)
 
-SELECT btbase32uint8base32uint8cmp('3'::base32uint8, '4'::base32uint8);
- btbase32uint8base32uint8cmp 
------------------------------
-                          -1
+SELECT btcrockford8crockford8cmp('3'::crockford8, '4'::crockford8);
+ btcrockford8crockford8cmp 
+---------------------------
+                        -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::base32uint8;
+SELECT '1'::crockford8 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::base32uint8;
+SELECT '3'::crockford8 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::base32uint8;
+SELECT '5'::crockford8 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::base32uint8;
+SELECT '1'::crockford8 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::base32uint8;
+SELECT '3'::crockford8 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '1'::base32uint8 < '1'::int2;
+SELECT '1'::crockford8 < '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::int2;
+SELECT '5'::crockford8 < '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::int2;
+SELECT '3'::crockford8 < '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::int2;
+SELECT '1'::crockford8 <= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::int2;
+SELECT '5'::crockford8 <= '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::int2;
+SELECT '3'::crockford8 <= '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::int2;
+SELECT '1'::crockford8 = '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::int2;
+SELECT '5'::crockford8 = '2'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::int2;
+SELECT '3'::crockford8 = '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::int2;
+SELECT '1'::crockford8 <> '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::int2;
+SELECT '5'::crockford8 <> '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::int2;
+SELECT '3'::crockford8 <> '4'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::int2;
+SELECT '1'::crockford8 >= '1'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::int2;
+SELECT '5'::crockford8 >= '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::int2;
+SELECT '3'::crockford8 >= '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::int2;
+SELECT '1'::crockford8 > '1'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::int2;
+SELECT '5'::crockford8 > '2'::int2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::int2;
+SELECT '3'::crockford8 > '4'::int2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8int2cmp('1'::base32uint8, '1'::int2);
- btbase32uint8int2cmp 
-----------------------
-                    0
+SELECT btcrockford8int2cmp('1'::crockford8, '1'::int2);
+ btcrockford8int2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint8int2cmp('5'::base32uint8, '2'::int2);
- btbase32uint8int2cmp 
-----------------------
-                    1
+SELECT btcrockford8int2cmp('5'::crockford8, '2'::int2);
+ btcrockford8int2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint8int2cmp('3'::base32uint8, '4'::int2);
- btbase32uint8int2cmp 
-----------------------
-                   -1
+SELECT btcrockford8int2cmp('3'::crockford8, '4'::int2);
+ btcrockford8int2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::int2);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::int2);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::int2;
+SELECT '1'::crockford8 + '1'::int2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::int2;
+SELECT '3'::crockford8 + '4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::int2;
+SELECT '5'::crockford8 + '2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint8 + '-4'::int2;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 + '-2'::int2;
+SELECT '3'::crockford8 + '-4'::int2;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 + '-2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '32767'::int2;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::int2);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + '32767'::int2;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::int2);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::int2;
+SELECT '1'::crockford8 - '1'::int2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::int2;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::int2;
+SELECT '3'::crockford8 - '4'::int2;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::int2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint8 - '-4'::int2;
+SELECT '3'::crockford8 - '-4'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 - '-2'::int2;
+SELECT '5'::crockford8 - '-2'::int2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint8 AS int2);
+SELECT CAST('5'::crockford8 AS int2);
  int2 
 ------
     5
 (1 row)
 
-SELECT CAST('40000'::base32uint8 AS int2);
+SELECT CAST('40000'::crockford8 AS int2);
 ERROR:  int2 out of range
-SELECT '1'::base32uint8 < '1'::int4;
+SELECT '1'::crockford8 < '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::int4;
+SELECT '5'::crockford8 < '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::int4;
+SELECT '3'::crockford8 < '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::int4;
+SELECT '1'::crockford8 <= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::int4;
+SELECT '5'::crockford8 <= '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::int4;
+SELECT '3'::crockford8 <= '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::int4;
+SELECT '1'::crockford8 = '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::int4;
+SELECT '5'::crockford8 = '2'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::int4;
+SELECT '3'::crockford8 = '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::int4;
+SELECT '1'::crockford8 <> '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::int4;
+SELECT '5'::crockford8 <> '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::int4;
+SELECT '3'::crockford8 <> '4'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::int4;
+SELECT '1'::crockford8 >= '1'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::int4;
+SELECT '5'::crockford8 >= '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::int4;
+SELECT '3'::crockford8 >= '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::int4;
+SELECT '1'::crockford8 > '1'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::int4;
+SELECT '5'::crockford8 > '2'::int4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::int4;
+SELECT '3'::crockford8 > '4'::int4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8int4cmp('1'::base32uint8, '1'::int4);
- btbase32uint8int4cmp 
-----------------------
-                    0
+SELECT btcrockford8int4cmp('1'::crockford8, '1'::int4);
+ btcrockford8int4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint8int4cmp('5'::base32uint8, '2'::int4);
- btbase32uint8int4cmp 
-----------------------
-                    1
+SELECT btcrockford8int4cmp('5'::crockford8, '2'::int4);
+ btcrockford8int4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint8int4cmp('3'::base32uint8, '4'::int4);
- btbase32uint8int4cmp 
-----------------------
-                   -1
+SELECT btcrockford8int4cmp('3'::crockford8, '4'::int4);
+ btcrockford8int4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::int4);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::int4);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::int4;
+SELECT '1'::crockford8 + '1'::int4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::int4;
+SELECT '3'::crockford8 + '4'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::int4;
+SELECT '5'::crockford8 + '2'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint8 + '-4'::int4;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 + '-2'::int4;
+SELECT '3'::crockford8 + '-4'::int4;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 + '-2'::int4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '2147483647'::int4;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::int4);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + '2147483647'::int4;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::int4);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::int4;
+SELECT '1'::crockford8 - '1'::int4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::int4;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::int4;
+SELECT '3'::crockford8 - '4'::int4;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::int4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint8 - '-4'::int4;
+SELECT '3'::crockford8 - '-4'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 - '-2'::int4;
+SELECT '5'::crockford8 - '-2'::int4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint8 AS int4);
+SELECT CAST('5'::crockford8 AS int4);
  int4 
 ------
     5
 (1 row)
 
-SELECT CAST('3000000000'::base32uint8 AS int4);
+SELECT CAST('3000000000'::crockford8 AS int4);
 ERROR:  int4 out of range
-SELECT '1'::base32uint8 < '1'::int8;
+SELECT '1'::crockford8 < '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 < '2'::int8;
+SELECT '5'::crockford8 < '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 < '4'::int8;
+SELECT '3'::crockford8 < '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 <= '1'::int8;
+SELECT '1'::crockford8 <= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 <= '2'::int8;
+SELECT '5'::crockford8 <= '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 <= '4'::int8;
+SELECT '3'::crockford8 <= '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 = '1'::int8;
+SELECT '1'::crockford8 = '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 = '2'::int8;
+SELECT '5'::crockford8 = '2'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::base32uint8 = '4'::int8;
+SELECT '3'::crockford8 = '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 <> '1'::int8;
+SELECT '1'::crockford8 <> '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 <> '2'::int8;
+SELECT '5'::crockford8 <> '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 <> '4'::int8;
+SELECT '3'::crockford8 <> '4'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::base32uint8 >= '1'::int8;
+SELECT '1'::crockford8 >= '1'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::base32uint8 >= '2'::int8;
+SELECT '5'::crockford8 >= '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 >= '4'::int8;
+SELECT '3'::crockford8 >= '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::base32uint8 > '1'::int8;
+SELECT '1'::crockford8 > '1'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::base32uint8 > '2'::int8;
+SELECT '5'::crockford8 > '2'::int8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::base32uint8 > '4'::int8;
+SELECT '3'::crockford8 > '4'::int8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btbase32uint8int8cmp('1'::base32uint8, '1'::int8);
- btbase32uint8int8cmp 
-----------------------
-                    0
+SELECT btcrockford8int8cmp('1'::crockford8, '1'::int8);
+ btcrockford8int8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btbase32uint8int8cmp('5'::base32uint8, '2'::int8);
- btbase32uint8int8cmp 
-----------------------
-                    1
+SELECT btcrockford8int8cmp('5'::crockford8, '2'::int8);
+ btcrockford8int8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btbase32uint8int8cmp('3'::base32uint8, '4'::int8);
- btbase32uint8int8cmp 
-----------------------
-                   -1
+SELECT btcrockford8int8cmp('3'::crockford8, '4'::int8);
+ btcrockford8int8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::base32uint8 + '1'::int8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::crockford8 + '1'::int8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 + '1'::int8;
+SELECT '1'::crockford8 + '1'::int8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::base32uint8 + '4'::int8;
+SELECT '3'::crockford8 + '4'::int8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 + '2'::int8;
+SELECT '5'::crockford8 + '2'::int8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '3'::base32uint8 + '-4'::int8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 + '-2'::int8;
+SELECT '3'::crockford8 + '-4'::int8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 + '-2'::int8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT 'FZZZZZZZZZZZZ'::base32uint8 + '9223372036854775807'::int8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::base32uint8 - '1'::int8);
-  pg_typeof  
--------------
- base32uint8
+SELECT 'FZZZZZZZZZZZZ'::crockford8 + '9223372036854775807'::int8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::crockford8 - '1'::int8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::base32uint8 - '1'::int8;
+SELECT '1'::crockford8 - '1'::int8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::base32uint8 - '4'::int8;
-ERROR:  base32uint8 out of range
-SELECT '5'::base32uint8 - '2'::int8;
+SELECT '3'::crockford8 - '4'::int8;
+ERROR:  crockford8 out of range
+SELECT '5'::crockford8 - '2'::int8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '3'::base32uint8 - '-4'::int8;
+SELECT '3'::crockford8 - '-4'::int8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 - '-2'::int8;
+SELECT '5'::crockford8 - '-2'::int8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT CAST('5'::base32uint8 AS int8);
+SELECT CAST('5'::crockford8 AS int8);
  int8 
 ------
     5
 (1 row)
 
-SELECT CAST('10000000000000000000'::base32uint8 AS int8);
-ERROR:  value "10000000000000000000" is out of range for type base32int8
-LINE 1: SELECT CAST('10000000000000000000'::base32uint8 AS int8);
+SELECT CAST('10000000000000000000'::crockford8 AS int8);
+ERROR:  value "10000000000000000000" is out of range for type crockfordint8
+LINE 1: SELECT CAST('10000000000000000000'::crockford8 AS int8);
                     ^
 SELECT '2'::int2 < 5;
  ?column? 
@@ -4347,582 +4347,582 @@ SELECT 5 - '2'::int2;
         3
 (1 row)
 
-SELECT '1'::int2 < '1'::base32uint2;
+SELECT '1'::int2 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 < '2'::base32uint2;
+SELECT '5'::int2 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 < '4'::base32uint2;
+SELECT '3'::int2 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 <= '1'::base32uint2;
+SELECT '1'::int2 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 <= '2'::base32uint2;
+SELECT '5'::int2 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 <= '4'::base32uint2;
+SELECT '3'::int2 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 = '1'::base32uint2;
+SELECT '1'::int2 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 = '2'::base32uint2;
+SELECT '5'::int2 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 = '4'::base32uint2;
+SELECT '3'::int2 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 <> '1'::base32uint2;
+SELECT '1'::int2 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 <> '2'::base32uint2;
+SELECT '5'::int2 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 <> '4'::base32uint2;
+SELECT '3'::int2 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 >= '1'::base32uint2;
+SELECT '1'::int2 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 >= '2'::base32uint2;
+SELECT '5'::int2 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 >= '4'::base32uint2;
+SELECT '3'::int2 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 > '1'::base32uint2;
+SELECT '1'::int2 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 > '2'::base32uint2;
+SELECT '5'::int2 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 > '4'::base32uint2;
+SELECT '3'::int2 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint2base32uint2cmp('1'::int2, '1'::base32uint2);
- btint2base32uint2cmp 
-----------------------
-                    0
+SELECT btint2crockford2cmp('1'::int2, '1'::crockford2);
+ btint2crockford2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint2base32uint2cmp('5'::int2, '2'::base32uint2);
- btint2base32uint2cmp 
-----------------------
-                    1
+SELECT btint2crockford2cmp('5'::int2, '2'::crockford2);
+ btint2crockford2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint2base32uint2cmp('3'::int2, '4'::base32uint2);
- btint2base32uint2cmp 
-----------------------
-                   -1
+SELECT btint2crockford2cmp('3'::int2, '4'::crockford2);
+ btint2crockford2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int2 + '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint2
+SELECT pg_typeof('1'::int2 + '1'::crockford2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::int2 + '1'::base32uint2;
+SELECT '1'::int2 + '1'::crockford2;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int2 + '4'::base32uint2;
+SELECT '3'::int2 + '4'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int2 + '2'::base32uint2;
+SELECT '5'::int2 + '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int2 + '4'::base32uint2;
+SELECT '-3'::int2 + '4'::crockford2;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int2 + '2'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT '32767'::int2 + '1ZZZ'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT pg_typeof('1'::int2 - '1'::base32uint2);
-  pg_typeof  
--------------
- base32uint2
+SELECT '-5'::int2 + '2'::crockford2;
+ERROR:  crockford2 out of range
+SELECT '32767'::int2 + '1ZZZ'::crockford2;
+ERROR:  crockford2 out of range
+SELECT pg_typeof('1'::int2 - '1'::crockford2);
+ pg_typeof  
+------------
+ crockford2
 (1 row)
 
-SELECT '1'::int2 - '1'::base32uint2;
+SELECT '1'::int2 - '1'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int2 - '4'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT '5'::int2 - '2'::base32uint2;
+SELECT '3'::int2 - '4'::crockford2;
+ERROR:  crockford2 out of range
+SELECT '5'::int2 - '2'::crockford2;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int2 - '4'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT '-5'::int2 - '2'::base32uint2;
-ERROR:  base32uint2 out of range
-SELECT CAST('5'::int2 AS base32uint2);
- base32uint2 
--------------
+SELECT '-3'::int2 - '4'::crockford2;
+ERROR:  crockford2 out of range
+SELECT '-5'::int2 - '2'::crockford2;
+ERROR:  crockford2 out of range
+SELECT CAST('5'::int2 AS crockford2);
+ crockford2 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int2 AS base32uint2);
-ERROR:  base32uint2 out of range
-SELECT '1'::int2 < '1'::base32uint4;
+SELECT CAST('-5'::int2 AS crockford2);
+ERROR:  crockford2 out of range
+SELECT '1'::int2 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 < '2'::base32uint4;
+SELECT '5'::int2 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 < '4'::base32uint4;
+SELECT '3'::int2 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 <= '1'::base32uint4;
+SELECT '1'::int2 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 <= '2'::base32uint4;
+SELECT '5'::int2 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 <= '4'::base32uint4;
+SELECT '3'::int2 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 = '1'::base32uint4;
+SELECT '1'::int2 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 = '2'::base32uint4;
+SELECT '5'::int2 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 = '4'::base32uint4;
+SELECT '3'::int2 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 <> '1'::base32uint4;
+SELECT '1'::int2 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 <> '2'::base32uint4;
+SELECT '5'::int2 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 <> '4'::base32uint4;
+SELECT '3'::int2 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 >= '1'::base32uint4;
+SELECT '1'::int2 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 >= '2'::base32uint4;
+SELECT '5'::int2 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 >= '4'::base32uint4;
+SELECT '3'::int2 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 > '1'::base32uint4;
+SELECT '1'::int2 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 > '2'::base32uint4;
+SELECT '5'::int2 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 > '4'::base32uint4;
+SELECT '3'::int2 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint2base32uint4cmp('1'::int2, '1'::base32uint4);
- btint2base32uint4cmp 
-----------------------
-                    0
+SELECT btint2crockford4cmp('1'::int2, '1'::crockford4);
+ btint2crockford4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint2base32uint4cmp('5'::int2, '2'::base32uint4);
- btint2base32uint4cmp 
-----------------------
-                    1
+SELECT btint2crockford4cmp('5'::int2, '2'::crockford4);
+ btint2crockford4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint2base32uint4cmp('3'::int2, '4'::base32uint4);
- btint2base32uint4cmp 
-----------------------
-                   -1
+SELECT btint2crockford4cmp('3'::int2, '4'::crockford4);
+ btint2crockford4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int2 + '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::int2 + '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::int2 + '1'::base32uint4;
+SELECT '1'::int2 + '1'::crockford4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int2 + '4'::base32uint4;
+SELECT '3'::int2 + '4'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int2 + '2'::base32uint4;
+SELECT '5'::int2 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int2 + '4'::base32uint4;
+SELECT '-3'::int2 + '4'::crockford4;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int2 + '2'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '32767'::int2 + '3ZZZZZZ'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::int2 - '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT '-5'::int2 + '2'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '32767'::int2 + '3ZZZZZZ'::crockford4;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::int2 - '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::int2 - '1'::base32uint4;
+SELECT '1'::int2 - '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int2 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '5'::int2 - '2'::base32uint4;
+SELECT '3'::int2 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '5'::int2 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int2 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '-5'::int2 - '2'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT CAST('5'::int2 AS base32uint4);
- base32uint4 
--------------
+SELECT '-3'::int2 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '-5'::int2 - '2'::crockford4;
+ERROR:  crockford4 out of range
+SELECT CAST('5'::int2 AS crockford4);
+ crockford4 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int2 AS base32uint4);
-ERROR:  base32uint4 out of range
-SELECT '1'::int2 < '1'::base32uint8;
+SELECT CAST('-5'::int2 AS crockford4);
+ERROR:  crockford4 out of range
+SELECT '1'::int2 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 < '2'::base32uint8;
+SELECT '5'::int2 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 < '4'::base32uint8;
+SELECT '3'::int2 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 <= '1'::base32uint8;
+SELECT '1'::int2 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 <= '2'::base32uint8;
+SELECT '5'::int2 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 <= '4'::base32uint8;
+SELECT '3'::int2 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 = '1'::base32uint8;
+SELECT '1'::int2 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 = '2'::base32uint8;
+SELECT '5'::int2 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int2 = '4'::base32uint8;
+SELECT '3'::int2 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 <> '1'::base32uint8;
+SELECT '1'::int2 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 <> '2'::base32uint8;
+SELECT '5'::int2 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 <> '4'::base32uint8;
+SELECT '3'::int2 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int2 >= '1'::base32uint8;
+SELECT '1'::int2 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int2 >= '2'::base32uint8;
+SELECT '5'::int2 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 >= '4'::base32uint8;
+SELECT '3'::int2 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int2 > '1'::base32uint8;
+SELECT '1'::int2 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int2 > '2'::base32uint8;
+SELECT '5'::int2 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int2 > '4'::base32uint8;
+SELECT '3'::int2 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint2base32uint8cmp('1'::int2, '1'::base32uint8);
- btint2base32uint8cmp 
-----------------------
-                    0
+SELECT btint2crockford8cmp('1'::int2, '1'::crockford8);
+ btint2crockford8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint2base32uint8cmp('5'::int2, '2'::base32uint8);
- btint2base32uint8cmp 
-----------------------
-                    1
+SELECT btint2crockford8cmp('5'::int2, '2'::crockford8);
+ btint2crockford8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint2base32uint8cmp('3'::int2, '4'::base32uint8);
- btint2base32uint8cmp 
-----------------------
-                   -1
+SELECT btint2crockford8cmp('3'::int2, '4'::crockford8);
+ btint2crockford8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int2 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::int2 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int2 + '1'::base32uint8;
+SELECT '1'::int2 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int2 + '4'::base32uint8;
+SELECT '3'::int2 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int2 + '2'::base32uint8;
+SELECT '5'::int2 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int2 + '4'::base32uint8;
+SELECT '-3'::int2 + '4'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int2 + '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '32767'::int2 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::int2 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT '-5'::int2 + '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '32767'::int2 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::int2 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int2 - '1'::base32uint8;
+SELECT '1'::int2 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int2 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::int2 - '2'::base32uint8;
+SELECT '3'::int2 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::int2 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int2 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '-5'::int2 - '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT CAST('5'::int2 AS base32uint8);
- base32uint8 
--------------
+SELECT '-3'::int2 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '-5'::int2 - '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT CAST('5'::int2 AS crockford8);
+ crockford8 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int2 AS base32uint8);
-ERROR:  base32uint8 out of range
+SELECT CAST('-5'::int2 AS crockford8);
+ERROR:  crockford8 out of range
 SELECT '2'::int4 < 5;
  ?column? 
 ----------
@@ -5115,604 +5115,604 @@ SELECT 5 - '2'::int4;
         3
 (1 row)
 
-SELECT '1'::int4 < '1'::base32uint2;
+SELECT '1'::int4 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 < '2'::base32uint2;
+SELECT '5'::int4 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 < '4'::base32uint2;
+SELECT '3'::int4 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 <= '1'::base32uint2;
+SELECT '1'::int4 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 <= '2'::base32uint2;
+SELECT '5'::int4 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 <= '4'::base32uint2;
+SELECT '3'::int4 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 = '1'::base32uint2;
+SELECT '1'::int4 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 = '2'::base32uint2;
+SELECT '5'::int4 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 = '4'::base32uint2;
+SELECT '3'::int4 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 <> '1'::base32uint2;
+SELECT '1'::int4 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 <> '2'::base32uint2;
+SELECT '5'::int4 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 <> '4'::base32uint2;
+SELECT '3'::int4 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 >= '1'::base32uint2;
+SELECT '1'::int4 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 >= '2'::base32uint2;
+SELECT '5'::int4 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 >= '4'::base32uint2;
+SELECT '3'::int4 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 > '1'::base32uint2;
+SELECT '1'::int4 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 > '2'::base32uint2;
+SELECT '5'::int4 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 > '4'::base32uint2;
+SELECT '3'::int4 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint4base32uint2cmp('1'::int4, '1'::base32uint2);
- btint4base32uint2cmp 
-----------------------
-                    0
+SELECT btint4crockford2cmp('1'::int4, '1'::crockford2);
+ btint4crockford2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint4base32uint2cmp('5'::int4, '2'::base32uint2);
- btint4base32uint2cmp 
-----------------------
-                    1
+SELECT btint4crockford2cmp('5'::int4, '2'::crockford2);
+ btint4crockford2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint4base32uint2cmp('3'::int4, '4'::base32uint2);
- btint4base32uint2cmp 
-----------------------
-                   -1
+SELECT btint4crockford2cmp('3'::int4, '4'::crockford2);
+ btint4crockford2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int4 + '1'::base32uint2);
+SELECT pg_typeof('1'::int4 + '1'::crockford2);
  pg_typeof 
 -----------
  integer
 (1 row)
 
-SELECT '1'::int4 + '1'::base32uint2;
+SELECT '1'::int4 + '1'::crockford2;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::int4 + '4'::base32uint2;
+SELECT '3'::int4 + '4'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::int4 + '2'::base32uint2;
+SELECT '5'::int4 + '2'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '-3'::int4 + '4'::base32uint2;
+SELECT '-3'::int4 + '4'::crockford2;
  ?column? 
 ----------
         1
 (1 row)
 
-SELECT '-5'::int4 + '2'::base32uint2;
+SELECT '-5'::int4 + '2'::crockford2;
  ?column? 
 ----------
        -3
 (1 row)
 
-SELECT '2147483647'::int4 + '1ZZZ'::base32uint2;
+SELECT '2147483647'::int4 + '1ZZZ'::crockford2;
 ERROR:  int4 out of range
-SELECT pg_typeof('1'::int4 - '1'::base32uint2);
+SELECT pg_typeof('1'::int4 - '1'::crockford2);
  pg_typeof 
 -----------
  integer
 (1 row)
 
-SELECT '1'::int4 - '1'::base32uint2;
+SELECT '1'::int4 - '1'::crockford2;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::int4 - '4'::base32uint2;
+SELECT '3'::int4 - '4'::crockford2;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::int4 - '2'::base32uint2;
+SELECT '5'::int4 - '2'::crockford2;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '-3'::int4 - '4'::base32uint2;
+SELECT '-3'::int4 - '4'::crockford2;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT '-5'::int4 - '2'::base32uint2;
+SELECT '-5'::int4 - '2'::crockford2;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT CAST('5'::int4 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('5'::int4 AS crockford2);
+ crockford2 
+------------
  5
 (1 row)
 
-SELECT CAST('2000'::int4 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('2000'::int4 AS crockford2);
+ crockford2 
+------------
  1YG
 (1 row)
 
-SELECT CAST('-5'::int4 AS base32uint2);
-ERROR:  base32uint2 out of range
-SELECT '1'::int4 < '1'::base32uint4;
+SELECT CAST('-5'::int4 AS crockford2);
+ERROR:  crockford2 out of range
+SELECT '1'::int4 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 < '2'::base32uint4;
+SELECT '5'::int4 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 < '4'::base32uint4;
+SELECT '3'::int4 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 <= '1'::base32uint4;
+SELECT '1'::int4 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 <= '2'::base32uint4;
+SELECT '5'::int4 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 <= '4'::base32uint4;
+SELECT '3'::int4 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 = '1'::base32uint4;
+SELECT '1'::int4 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 = '2'::base32uint4;
+SELECT '5'::int4 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 = '4'::base32uint4;
+SELECT '3'::int4 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 <> '1'::base32uint4;
+SELECT '1'::int4 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 <> '2'::base32uint4;
+SELECT '5'::int4 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 <> '4'::base32uint4;
+SELECT '3'::int4 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 >= '1'::base32uint4;
+SELECT '1'::int4 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 >= '2'::base32uint4;
+SELECT '5'::int4 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 >= '4'::base32uint4;
+SELECT '3'::int4 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 > '1'::base32uint4;
+SELECT '1'::int4 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 > '2'::base32uint4;
+SELECT '5'::int4 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 > '4'::base32uint4;
+SELECT '3'::int4 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint4base32uint4cmp('1'::int4, '1'::base32uint4);
- btint4base32uint4cmp 
-----------------------
-                    0
+SELECT btint4crockford4cmp('1'::int4, '1'::crockford4);
+ btint4crockford4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint4base32uint4cmp('5'::int4, '2'::base32uint4);
- btint4base32uint4cmp 
-----------------------
-                    1
+SELECT btint4crockford4cmp('5'::int4, '2'::crockford4);
+ btint4crockford4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint4base32uint4cmp('3'::int4, '4'::base32uint4);
- btint4base32uint4cmp 
-----------------------
-                   -1
+SELECT btint4crockford4cmp('3'::int4, '4'::crockford4);
+ btint4crockford4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int4 + '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT pg_typeof('1'::int4 + '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::int4 + '1'::base32uint4;
+SELECT '1'::int4 + '1'::crockford4;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int4 + '4'::base32uint4;
+SELECT '3'::int4 + '4'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int4 + '2'::base32uint4;
+SELECT '5'::int4 + '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int4 + '4'::base32uint4;
+SELECT '-3'::int4 + '4'::crockford4;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int4 + '2'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '2147483647'::int4 + '3ZZZZZZ'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT pg_typeof('1'::int4 - '1'::base32uint4);
-  pg_typeof  
--------------
- base32uint4
+SELECT '-5'::int4 + '2'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '2147483647'::int4 + '3ZZZZZZ'::crockford4;
+ERROR:  crockford4 out of range
+SELECT pg_typeof('1'::int4 - '1'::crockford4);
+ pg_typeof  
+------------
+ crockford4
 (1 row)
 
-SELECT '1'::int4 - '1'::base32uint4;
+SELECT '1'::int4 - '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int4 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '5'::int4 - '2'::base32uint4;
+SELECT '3'::int4 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '5'::int4 - '2'::crockford4;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int4 - '4'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT '-5'::int4 - '2'::base32uint4;
-ERROR:  base32uint4 out of range
-SELECT CAST('5'::int4 AS base32uint4);
- base32uint4 
--------------
+SELECT '-3'::int4 - '4'::crockford4;
+ERROR:  crockford4 out of range
+SELECT '-5'::int4 - '2'::crockford4;
+ERROR:  crockford4 out of range
+SELECT CAST('5'::int4 AS crockford4);
+ crockford4 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int4 AS base32uint4);
-ERROR:  base32uint4 out of range
-SELECT '1'::int4 < '1'::base32uint8;
+SELECT CAST('-5'::int4 AS crockford4);
+ERROR:  crockford4 out of range
+SELECT '1'::int4 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 < '2'::base32uint8;
+SELECT '5'::int4 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 < '4'::base32uint8;
+SELECT '3'::int4 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 <= '1'::base32uint8;
+SELECT '1'::int4 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 <= '2'::base32uint8;
+SELECT '5'::int4 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 <= '4'::base32uint8;
+SELECT '3'::int4 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 = '1'::base32uint8;
+SELECT '1'::int4 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 = '2'::base32uint8;
+SELECT '5'::int4 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int4 = '4'::base32uint8;
+SELECT '3'::int4 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 <> '1'::base32uint8;
+SELECT '1'::int4 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 <> '2'::base32uint8;
+SELECT '5'::int4 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 <> '4'::base32uint8;
+SELECT '3'::int4 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int4 >= '1'::base32uint8;
+SELECT '1'::int4 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int4 >= '2'::base32uint8;
+SELECT '5'::int4 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 >= '4'::base32uint8;
+SELECT '3'::int4 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int4 > '1'::base32uint8;
+SELECT '1'::int4 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int4 > '2'::base32uint8;
+SELECT '5'::int4 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int4 > '4'::base32uint8;
+SELECT '3'::int4 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint4base32uint8cmp('1'::int4, '1'::base32uint8);
- btint4base32uint8cmp 
-----------------------
-                    0
+SELECT btint4crockford8cmp('1'::int4, '1'::crockford8);
+ btint4crockford8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint4base32uint8cmp('5'::int4, '2'::base32uint8);
- btint4base32uint8cmp 
-----------------------
-                    1
+SELECT btint4crockford8cmp('5'::int4, '2'::crockford8);
+ btint4crockford8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint4base32uint8cmp('3'::int4, '4'::base32uint8);
- btint4base32uint8cmp 
-----------------------
-                   -1
+SELECT btint4crockford8cmp('3'::int4, '4'::crockford8);
+ btint4crockford8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int4 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::int4 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int4 + '1'::base32uint8;
+SELECT '1'::int4 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int4 + '4'::base32uint8;
+SELECT '3'::int4 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int4 + '2'::base32uint8;
+SELECT '5'::int4 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int4 + '4'::base32uint8;
+SELECT '-3'::int4 + '4'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int4 + '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '2147483647'::int4 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::int4 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT '-5'::int4 + '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '2147483647'::int4 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::int4 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int4 - '1'::base32uint8;
+SELECT '1'::int4 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int4 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::int4 - '2'::base32uint8;
+SELECT '3'::int4 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::int4 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int4 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '-5'::int4 - '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT CAST('5'::int4 AS base32uint8);
- base32uint8 
--------------
+SELECT '-3'::int4 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '-5'::int4 - '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT CAST('5'::int4 AS crockford8);
+ crockford8 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int4 AS base32uint8);
-ERROR:  base32uint8 out of range
+SELECT CAST('-5'::int4 AS crockford8);
+ERROR:  crockford8 out of range
 SELECT '2'::int8 < 5;
  ?column? 
 ----------
@@ -5905,1136 +5905,1136 @@ SELECT 5 - '2'::int8;
         3
 (1 row)
 
-SELECT '1'::int8 < '1'::base32uint2;
+SELECT '1'::int8 < '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 < '2'::base32uint2;
+SELECT '5'::int8 < '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 < '4'::base32uint2;
+SELECT '3'::int8 < '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 <= '1'::base32uint2;
+SELECT '1'::int8 <= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 <= '2'::base32uint2;
+SELECT '5'::int8 <= '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 <= '4'::base32uint2;
+SELECT '3'::int8 <= '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 = '1'::base32uint2;
+SELECT '1'::int8 = '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 = '2'::base32uint2;
+SELECT '5'::int8 = '2'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 = '4'::base32uint2;
+SELECT '3'::int8 = '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 <> '1'::base32uint2;
+SELECT '1'::int8 <> '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 <> '2'::base32uint2;
+SELECT '5'::int8 <> '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 <> '4'::base32uint2;
+SELECT '3'::int8 <> '4'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 >= '1'::base32uint2;
+SELECT '1'::int8 >= '1'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 >= '2'::base32uint2;
+SELECT '5'::int8 >= '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 >= '4'::base32uint2;
+SELECT '3'::int8 >= '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 > '1'::base32uint2;
+SELECT '1'::int8 > '1'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 > '2'::base32uint2;
+SELECT '5'::int8 > '2'::crockford2;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 > '4'::base32uint2;
+SELECT '3'::int8 > '4'::crockford2;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint8base32uint2cmp('1'::int8, '1'::base32uint2);
- btint8base32uint2cmp 
-----------------------
-                    0
+SELECT btint8crockford2cmp('1'::int8, '1'::crockford2);
+ btint8crockford2cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint8base32uint2cmp('5'::int8, '2'::base32uint2);
- btint8base32uint2cmp 
-----------------------
-                    1
+SELECT btint8crockford2cmp('5'::int8, '2'::crockford2);
+ btint8crockford2cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint8base32uint2cmp('3'::int8, '4'::base32uint2);
- btint8base32uint2cmp 
-----------------------
-                   -1
+SELECT btint8crockford2cmp('3'::int8, '4'::crockford2);
+ btint8crockford2cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int8 + '1'::base32uint2);
+SELECT pg_typeof('1'::int8 + '1'::crockford2);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::int8 + '1'::base32uint2;
+SELECT '1'::int8 + '1'::crockford2;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::int8 + '4'::base32uint2;
+SELECT '3'::int8 + '4'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::int8 + '2'::base32uint2;
+SELECT '5'::int8 + '2'::crockford2;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '-3'::int8 + '4'::base32uint2;
+SELECT '-3'::int8 + '4'::crockford2;
  ?column? 
 ----------
         1
 (1 row)
 
-SELECT '-5'::int8 + '2'::base32uint2;
+SELECT '-5'::int8 + '2'::crockford2;
  ?column? 
 ----------
        -3
 (1 row)
 
-SELECT '9223372036854775807'::int8 + '1ZZZ'::base32uint2;
+SELECT '9223372036854775807'::int8 + '1ZZZ'::crockford2;
 ERROR:  int8 out of range
-SELECT pg_typeof('1'::int8 - '1'::base32uint2);
+SELECT pg_typeof('1'::int8 - '1'::crockford2);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::int8 - '1'::base32uint2;
+SELECT '1'::int8 - '1'::crockford2;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::int8 - '4'::base32uint2;
+SELECT '3'::int8 - '4'::crockford2;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::int8 - '2'::base32uint2;
+SELECT '5'::int8 - '2'::crockford2;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '-3'::int8 - '4'::base32uint2;
+SELECT '-3'::int8 - '4'::crockford2;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT '-5'::int8 - '2'::base32uint2;
+SELECT '-5'::int8 - '2'::crockford2;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT CAST('5'::int8 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('5'::int8 AS crockford2);
+ crockford2 
+------------
  5
 (1 row)
 
-SELECT CAST('2000'::int8 AS base32uint2);
- base32uint2 
--------------
+SELECT CAST('2000'::int8 AS crockford2);
+ crockford2 
+------------
  1YG
 (1 row)
 
-SELECT CAST('-5'::int8 AS base32uint2);
-ERROR:  base32uint2 out of range
-SELECT '1'::int8 < '1'::base32uint4;
+SELECT CAST('-5'::int8 AS crockford2);
+ERROR:  crockford2 out of range
+SELECT '1'::int8 < '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 < '2'::base32uint4;
+SELECT '5'::int8 < '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 < '4'::base32uint4;
+SELECT '3'::int8 < '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 <= '1'::base32uint4;
+SELECT '1'::int8 <= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 <= '2'::base32uint4;
+SELECT '5'::int8 <= '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 <= '4'::base32uint4;
+SELECT '3'::int8 <= '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 = '1'::base32uint4;
+SELECT '1'::int8 = '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 = '2'::base32uint4;
+SELECT '5'::int8 = '2'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 = '4'::base32uint4;
+SELECT '3'::int8 = '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 <> '1'::base32uint4;
+SELECT '1'::int8 <> '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 <> '2'::base32uint4;
+SELECT '5'::int8 <> '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 <> '4'::base32uint4;
+SELECT '3'::int8 <> '4'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 >= '1'::base32uint4;
+SELECT '1'::int8 >= '1'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 >= '2'::base32uint4;
+SELECT '5'::int8 >= '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 >= '4'::base32uint4;
+SELECT '3'::int8 >= '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 > '1'::base32uint4;
+SELECT '1'::int8 > '1'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 > '2'::base32uint4;
+SELECT '5'::int8 > '2'::crockford4;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 > '4'::base32uint4;
+SELECT '3'::int8 > '4'::crockford4;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint8base32uint4cmp('1'::int8, '1'::base32uint4);
- btint8base32uint4cmp 
-----------------------
-                    0
+SELECT btint8crockford4cmp('1'::int8, '1'::crockford4);
+ btint8crockford4cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint8base32uint4cmp('5'::int8, '2'::base32uint4);
- btint8base32uint4cmp 
-----------------------
-                    1
+SELECT btint8crockford4cmp('5'::int8, '2'::crockford4);
+ btint8crockford4cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint8base32uint4cmp('3'::int8, '4'::base32uint4);
- btint8base32uint4cmp 
-----------------------
-                   -1
+SELECT btint8crockford4cmp('3'::int8, '4'::crockford4);
+ btint8crockford4cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int8 + '1'::base32uint4);
+SELECT pg_typeof('1'::int8 + '1'::crockford4);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::int8 + '1'::base32uint4;
+SELECT '1'::int8 + '1'::crockford4;
  ?column? 
 ----------
         2
 (1 row)
 
-SELECT '3'::int8 + '4'::base32uint4;
+SELECT '3'::int8 + '4'::crockford4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '5'::int8 + '2'::base32uint4;
+SELECT '5'::int8 + '2'::crockford4;
  ?column? 
 ----------
         7
 (1 row)
 
-SELECT '-3'::int8 + '4'::base32uint4;
+SELECT '-3'::int8 + '4'::crockford4;
  ?column? 
 ----------
         1
 (1 row)
 
-SELECT '-5'::int8 + '2'::base32uint4;
+SELECT '-5'::int8 + '2'::crockford4;
  ?column? 
 ----------
        -3
 (1 row)
 
-SELECT '9223372036854775807'::int8 + '3ZZZZZZ'::base32uint4;
+SELECT '9223372036854775807'::int8 + '3ZZZZZZ'::crockford4;
 ERROR:  int8 out of range
-SELECT pg_typeof('1'::int8 - '1'::base32uint4);
+SELECT pg_typeof('1'::int8 - '1'::crockford4);
  pg_typeof 
 -----------
  bigint
 (1 row)
 
-SELECT '1'::int8 - '1'::base32uint4;
+SELECT '1'::int8 - '1'::crockford4;
  ?column? 
 ----------
         0
 (1 row)
 
-SELECT '3'::int8 - '4'::base32uint4;
+SELECT '3'::int8 - '4'::crockford4;
  ?column? 
 ----------
        -1
 (1 row)
 
-SELECT '5'::int8 - '2'::base32uint4;
+SELECT '5'::int8 - '2'::crockford4;
  ?column? 
 ----------
         3
 (1 row)
 
-SELECT '-3'::int8 - '4'::base32uint4;
+SELECT '-3'::int8 - '4'::crockford4;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT '-5'::int8 - '2'::base32uint4;
+SELECT '-5'::int8 - '2'::crockford4;
  ?column? 
 ----------
        -7
 (1 row)
 
-SELECT CAST('5'::int8 AS base32uint4);
- base32uint4 
--------------
+SELECT CAST('5'::int8 AS crockford4);
+ crockford4 
+------------
  5
 (1 row)
 
-SELECT CAST('4000000'::int8 AS base32uint4);
- base32uint4 
--------------
+SELECT CAST('4000000'::int8 AS crockford4);
+ crockford4 
+------------
  3T280
 (1 row)
 
-SELECT CAST('-5'::int8 AS base32uint4);
-ERROR:  base32uint4 out of range
-SELECT '1'::int8 < '1'::base32uint8;
+SELECT CAST('-5'::int8 AS crockford4);
+ERROR:  crockford4 out of range
+SELECT '1'::int8 < '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 < '2'::base32uint8;
+SELECT '5'::int8 < '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 < '4'::base32uint8;
+SELECT '3'::int8 < '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 <= '1'::base32uint8;
+SELECT '1'::int8 <= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 <= '2'::base32uint8;
+SELECT '5'::int8 <= '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 <= '4'::base32uint8;
+SELECT '3'::int8 <= '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 = '1'::base32uint8;
+SELECT '1'::int8 = '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 = '2'::base32uint8;
+SELECT '5'::int8 = '2'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '3'::int8 = '4'::base32uint8;
+SELECT '3'::int8 = '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 <> '1'::base32uint8;
+SELECT '1'::int8 <> '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 <> '2'::base32uint8;
+SELECT '5'::int8 <> '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 <> '4'::base32uint8;
+SELECT '3'::int8 <> '4'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '1'::int8 >= '1'::base32uint8;
+SELECT '1'::int8 >= '1'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '5'::int8 >= '2'::base32uint8;
+SELECT '5'::int8 >= '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 >= '4'::base32uint8;
+SELECT '3'::int8 >= '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '1'::int8 > '1'::base32uint8;
+SELECT '1'::int8 > '1'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT '5'::int8 > '2'::base32uint8;
+SELECT '5'::int8 > '2'::crockford8;
  ?column? 
 ----------
  t
 (1 row)
 
-SELECT '3'::int8 > '4'::base32uint8;
+SELECT '3'::int8 > '4'::crockford8;
  ?column? 
 ----------
  f
 (1 row)
 
-SELECT btint8base32uint8cmp('1'::int8, '1'::base32uint8);
- btint8base32uint8cmp 
-----------------------
-                    0
+SELECT btint8crockford8cmp('1'::int8, '1'::crockford8);
+ btint8crockford8cmp 
+---------------------
+                   0
 (1 row)
 
-SELECT btint8base32uint8cmp('5'::int8, '2'::base32uint8);
- btint8base32uint8cmp 
-----------------------
-                    1
+SELECT btint8crockford8cmp('5'::int8, '2'::crockford8);
+ btint8crockford8cmp 
+---------------------
+                   1
 (1 row)
 
-SELECT btint8base32uint8cmp('3'::int8, '4'::base32uint8);
- btint8base32uint8cmp 
-----------------------
-                   -1
+SELECT btint8crockford8cmp('3'::int8, '4'::crockford8);
+ btint8crockford8cmp 
+---------------------
+                  -1
 (1 row)
 
-SELECT pg_typeof('1'::int8 + '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT pg_typeof('1'::int8 + '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int8 + '1'::base32uint8;
+SELECT '1'::int8 + '1'::crockford8;
  ?column? 
 ----------
  2
 (1 row)
 
-SELECT '3'::int8 + '4'::base32uint8;
+SELECT '3'::int8 + '4'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::int8 + '2'::base32uint8;
+SELECT '5'::int8 + '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '-3'::int8 + '4'::base32uint8;
+SELECT '-3'::int8 + '4'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '-5'::int8 + '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '9223372036854775807'::int8 + 'FZZZZZZZZZZZZ'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT pg_typeof('1'::int8 - '1'::base32uint8);
-  pg_typeof  
--------------
- base32uint8
+SELECT '-5'::int8 + '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '9223372036854775807'::int8 + 'FZZZZZZZZZZZZ'::crockford8;
+ERROR:  crockford8 out of range
+SELECT pg_typeof('1'::int8 - '1'::crockford8);
+ pg_typeof  
+------------
+ crockford8
 (1 row)
 
-SELECT '1'::int8 - '1'::base32uint8;
+SELECT '1'::int8 - '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '3'::int8 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '5'::int8 - '2'::base32uint8;
+SELECT '3'::int8 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '5'::int8 - '2'::crockford8;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '-3'::int8 - '4'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT '-5'::int8 - '2'::base32uint8;
-ERROR:  base32uint8 out of range
-SELECT CAST('5'::int8 AS base32uint8);
- base32uint8 
--------------
+SELECT '-3'::int8 - '4'::crockford8;
+ERROR:  crockford8 out of range
+SELECT '-5'::int8 - '2'::crockford8;
+ERROR:  crockford8 out of range
+SELECT CAST('5'::int8 AS crockford8);
+ crockford8 
+------------
  5
 (1 row)
 
-SELECT CAST('-5'::int8 AS base32uint8);
-ERROR:  base32uint8 out of range
-SELECT '1'::base32uint2 & '1'::base32uint2;
+SELECT CAST('-5'::int8 AS crockford8);
+ERROR:  crockford8 out of range
+SELECT '1'::crockford2 & '1'::crockford2;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint2 & '2'::base32uint2;
+SELECT '5'::crockford2 & '2'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint2 & '4'::base32uint2;
+SELECT '5'::crockford2 & '4'::crockford2;
  ?column? 
 ----------
  4
 (1 row)
 
-SELECT '1'::base32uint2 | '1'::base32uint2;
+SELECT '1'::crockford2 | '1'::crockford2;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint2 | '2'::base32uint2;
+SELECT '5'::crockford2 | '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 | '4'::base32uint2;
+SELECT '5'::crockford2 | '4'::crockford2;
  ?column? 
 ----------
  5
 (1 row)
 
-SELECT '1'::base32uint2 # '1'::base32uint2;
+SELECT '1'::crockford2 # '1'::crockford2;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint2 # '2'::base32uint2;
+SELECT '5'::crockford2 # '2'::crockford2;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint2 # '4'::base32uint2;
+SELECT '5'::crockford2 # '4'::crockford2;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT ~ '6'::base32uint2;
+SELECT ~ '6'::crockford2;
  ?column? 
 ----------
  1ZZS
 (1 row)
 
-SELECT '6'::base32uint2 << 1;
+SELECT '6'::crockford2 << 1;
  ?column? 
 ----------
  C
 (1 row)
 
-SELECT '6'::base32uint2 << 3;
+SELECT '6'::crockford2 << 3;
  ?column? 
 ----------
  1G
 (1 row)
 
-SELECT '6'::base32uint2 >> 1;
+SELECT '6'::crockford2 >> 1;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '6'::base32uint2 >> 3;
+SELECT '6'::crockford2 >> 3;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT base32uint2smaller('1'::base32uint2, '1'::base32uint2);
- base32uint2smaller 
---------------------
+SELECT crockford2smaller('1'::crockford2, '1'::crockford2);
+ crockford2smaller 
+-------------------
  1
 (1 row)
 
-SELECT base32uint2smaller('5'::base32uint2, '2'::base32uint2);
- base32uint2smaller 
---------------------
+SELECT crockford2smaller('5'::crockford2, '2'::crockford2);
+ crockford2smaller 
+-------------------
  2
 (1 row)
 
-SELECT base32uint2smaller('3'::base32uint2, '4'::base32uint2);
- base32uint2smaller 
---------------------
+SELECT crockford2smaller('3'::crockford2, '4'::crockford2);
+ crockford2smaller 
+-------------------
  3
 (1 row)
 
-SELECT min(val::base32uint2) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT min(val::crockford2) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  min 
 -----
  1
 (1 row)
 
-SELECT base32uint2larger('1'::base32uint2, '1'::base32uint2);
- base32uint2larger 
--------------------
+SELECT crockford2larger('1'::crockford2, '1'::crockford2);
+ crockford2larger 
+------------------
  1
 (1 row)
 
-SELECT base32uint2larger('5'::base32uint2, '2'::base32uint2);
- base32uint2larger 
--------------------
+SELECT crockford2larger('5'::crockford2, '2'::crockford2);
+ crockford2larger 
+------------------
  5
 (1 row)
 
-SELECT base32uint2larger('3'::base32uint2, '4'::base32uint2);
- base32uint2larger 
--------------------
+SELECT crockford2larger('3'::crockford2, '4'::crockford2);
+ crockford2larger 
+------------------
  4
 (1 row)
 
-SELECT max(val::base32uint2) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT max(val::crockford2) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  max 
 -----
  5
 (1 row)
 
-SELECT bit_and(val::base32uint2) FROM (VALUES (3), (6), (18)) AS _ (val);
+SELECT bit_and(val::crockford2) FROM (VALUES (3), (6), (18)) AS _ (val);
  bit_and 
 ---------
  2
 (1 row)
 
-SELECT bit_or(val::base32uint2) FROM (VALUES (9), (1), (4)) AS _ (val);
+SELECT bit_or(val::crockford2) FROM (VALUES (9), (1), (4)) AS _ (val);
  bit_or 
 --------
  D
 (1 row)
 
-SELECT '1'::base32uint4 & '1'::base32uint4;
+SELECT '1'::crockford4 & '1'::crockford4;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint4 & '2'::base32uint4;
+SELECT '5'::crockford4 & '2'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint4 & '4'::base32uint4;
+SELECT '5'::crockford4 & '4'::crockford4;
  ?column? 
 ----------
  4
 (1 row)
 
-SELECT '1'::base32uint4 | '1'::base32uint4;
+SELECT '1'::crockford4 | '1'::crockford4;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint4 | '2'::base32uint4;
+SELECT '5'::crockford4 | '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 | '4'::base32uint4;
+SELECT '5'::crockford4 | '4'::crockford4;
  ?column? 
 ----------
  5
 (1 row)
 
-SELECT '1'::base32uint4 # '1'::base32uint4;
+SELECT '1'::crockford4 # '1'::crockford4;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint4 # '2'::base32uint4;
+SELECT '5'::crockford4 # '2'::crockford4;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint4 # '4'::base32uint4;
+SELECT '5'::crockford4 # '4'::crockford4;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT ~ '6'::base32uint4;
+SELECT ~ '6'::crockford4;
  ?column? 
 ----------
  3ZZZZZS
 (1 row)
 
-SELECT '6'::base32uint4 << 1;
+SELECT '6'::crockford4 << 1;
  ?column? 
 ----------
  C
 (1 row)
 
-SELECT '6'::base32uint4 << 3;
+SELECT '6'::crockford4 << 3;
  ?column? 
 ----------
  1G
 (1 row)
 
-SELECT '6'::base32uint4 >> 1;
+SELECT '6'::crockford4 >> 1;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '6'::base32uint4 >> 3;
+SELECT '6'::crockford4 >> 3;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT base32uint4smaller('1'::base32uint4, '1'::base32uint4);
- base32uint4smaller 
---------------------
+SELECT crockford4smaller('1'::crockford4, '1'::crockford4);
+ crockford4smaller 
+-------------------
  1
 (1 row)
 
-SELECT base32uint4smaller('5'::base32uint4, '2'::base32uint4);
- base32uint4smaller 
---------------------
+SELECT crockford4smaller('5'::crockford4, '2'::crockford4);
+ crockford4smaller 
+-------------------
  2
 (1 row)
 
-SELECT base32uint4smaller('3'::base32uint4, '4'::base32uint4);
- base32uint4smaller 
---------------------
+SELECT crockford4smaller('3'::crockford4, '4'::crockford4);
+ crockford4smaller 
+-------------------
  3
 (1 row)
 
-SELECT min(val::base32uint4) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT min(val::crockford4) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  min 
 -----
  1
 (1 row)
 
-SELECT base32uint4larger('1'::base32uint4, '1'::base32uint4);
- base32uint4larger 
--------------------
+SELECT crockford4larger('1'::crockford4, '1'::crockford4);
+ crockford4larger 
+------------------
  1
 (1 row)
 
-SELECT base32uint4larger('5'::base32uint4, '2'::base32uint4);
- base32uint4larger 
--------------------
+SELECT crockford4larger('5'::crockford4, '2'::crockford4);
+ crockford4larger 
+------------------
  5
 (1 row)
 
-SELECT base32uint4larger('3'::base32uint4, '4'::base32uint4);
- base32uint4larger 
--------------------
+SELECT crockford4larger('3'::crockford4, '4'::crockford4);
+ crockford4larger 
+------------------
  4
 (1 row)
 
-SELECT max(val::base32uint4) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT max(val::crockford4) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  max 
 -----
  5
 (1 row)
 
-SELECT bit_and(val::base32uint4) FROM (VALUES (3), (6), (18)) AS _ (val);
+SELECT bit_and(val::crockford4) FROM (VALUES (3), (6), (18)) AS _ (val);
  bit_and 
 ---------
  2
 (1 row)
 
-SELECT bit_or(val::base32uint4) FROM (VALUES (9), (1), (4)) AS _ (val);
+SELECT bit_or(val::crockford4) FROM (VALUES (9), (1), (4)) AS _ (val);
  bit_or 
 --------
  D
 (1 row)
 
-SELECT '1'::base32uint8 & '1'::base32uint8;
+SELECT '1'::crockford8 & '1'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint8 & '2'::base32uint8;
+SELECT '5'::crockford8 & '2'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint8 & '4'::base32uint8;
+SELECT '5'::crockford8 & '4'::crockford8;
  ?column? 
 ----------
  4
 (1 row)
 
-SELECT '1'::base32uint8 | '1'::base32uint8;
+SELECT '1'::crockford8 | '1'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT '5'::base32uint8 | '2'::base32uint8;
+SELECT '5'::crockford8 | '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 | '4'::base32uint8;
+SELECT '5'::crockford8 | '4'::crockford8;
  ?column? 
 ----------
  5
 (1 row)
 
-SELECT '1'::base32uint8 # '1'::base32uint8;
+SELECT '1'::crockford8 # '1'::crockford8;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT '5'::base32uint8 # '2'::base32uint8;
+SELECT '5'::crockford8 # '2'::crockford8;
  ?column? 
 ----------
  7
 (1 row)
 
-SELECT '5'::base32uint8 # '4'::base32uint8;
+SELECT '5'::crockford8 # '4'::crockford8;
  ?column? 
 ----------
  1
 (1 row)
 
-SELECT ~ '6'::base32uint8;
+SELECT ~ '6'::crockford8;
    ?column?    
 ---------------
  FZZZZZZZZZZZS
 (1 row)
 
-SELECT '6'::base32uint8 << 1;
+SELECT '6'::crockford8 << 1;
  ?column? 
 ----------
  C
 (1 row)
 
-SELECT '6'::base32uint8 << 3;
+SELECT '6'::crockford8 << 3;
  ?column? 
 ----------
  1G
 (1 row)
 
-SELECT '6'::base32uint8 >> 1;
+SELECT '6'::crockford8 >> 1;
  ?column? 
 ----------
  3
 (1 row)
 
-SELECT '6'::base32uint8 >> 3;
+SELECT '6'::crockford8 >> 3;
  ?column? 
 ----------
  0
 (1 row)
 
-SELECT base32uint8smaller('1'::base32uint8, '1'::base32uint8);
- base32uint8smaller 
---------------------
+SELECT crockford8smaller('1'::crockford8, '1'::crockford8);
+ crockford8smaller 
+-------------------
  1
 (1 row)
 
-SELECT base32uint8smaller('5'::base32uint8, '2'::base32uint8);
- base32uint8smaller 
---------------------
+SELECT crockford8smaller('5'::crockford8, '2'::crockford8);
+ crockford8smaller 
+-------------------
  2
 (1 row)
 
-SELECT base32uint8smaller('3'::base32uint8, '4'::base32uint8);
- base32uint8smaller 
---------------------
+SELECT crockford8smaller('3'::crockford8, '4'::crockford8);
+ crockford8smaller 
+-------------------
  3
 (1 row)
 
-SELECT min(val::base32uint8) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT min(val::crockford8) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  min 
 -----
  1
 (1 row)
 
-SELECT base32uint8larger('1'::base32uint8, '1'::base32uint8);
- base32uint8larger 
--------------------
+SELECT crockford8larger('1'::crockford8, '1'::crockford8);
+ crockford8larger 
+------------------
  1
 (1 row)
 
-SELECT base32uint8larger('5'::base32uint8, '2'::base32uint8);
- base32uint8larger 
--------------------
+SELECT crockford8larger('5'::crockford8, '2'::crockford8);
+ crockford8larger 
+------------------
  5
 (1 row)
 
-SELECT base32uint8larger('3'::base32uint8, '4'::base32uint8);
- base32uint8larger 
--------------------
+SELECT crockford8larger('3'::crockford8, '4'::crockford8);
+ crockford8larger 
+------------------
  4
 (1 row)
 
-SELECT max(val::base32uint8) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
+SELECT max(val::crockford8) FROM (VALUES (3), (5), (1), (4)) AS _ (val);
  max 
 -----
  5
 (1 row)
 
-SELECT bit_and(val::base32uint8) FROM (VALUES (3), (6), (18)) AS _ (val);
+SELECT bit_and(val::crockford8) FROM (VALUES (3), (6), (18)) AS _ (val);
  bit_and 
 ---------
  2
 (1 row)
 
-SELECT bit_or(val::base32uint8) FROM (VALUES (9), (1), (4)) AS _ (val);
+SELECT bit_or(val::crockford8) FROM (VALUES (9), (1), (4)) AS _ (val);
  bit_or 
 --------
  D
 (1 row)
 
-CREATE TABLE test_base32uint2 (x base32uint2);
-CREATE UNIQUE INDEX test_base32uint2_x_key ON test_base32uint2 USING btree (x);
-INSERT INTO test_base32uint2 VALUES (1), (2), (3), (4), (5), (null);
+CREATE TABLE test_crockford2 (x crockford2);
+CREATE UNIQUE INDEX test_crockford2_x_key ON test_crockford2 USING btree (x);
+INSERT INTO test_crockford2 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::base32uint2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
-   Index Cond: (x = '3'::base32uint2)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::crockford2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::base32uint2;
+SELECT * FROM test_crockford2 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::base32uint4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
-   Index Cond: (x = '3'::base32uint4)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::crockford4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::base32uint4;
+SELECT * FROM test_crockford2 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::base32uint8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
-   Index Cond: (x = '3'::base32uint8)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::crockford8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::base32uint8;
+SELECT * FROM test_crockford2 WHERE x = 3::crockford8;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::int2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::int2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
    Index Cond: (x = '3'::smallint)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::int2;
+SELECT * FROM test_crockford2 WHERE x = 3::int2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::int4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::int4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
    Index Cond: (x = 3)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::int4;
+SELECT * FROM test_crockford2 WHERE x = 3::int4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint2 WHERE x = 3::int8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint2_x_key on test_base32uint2
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford2 WHERE x = 3::int8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford2_x_key on test_crockford2
    Index Cond: (x = '3'::bigint)
 (2 rows)
 
-SELECT * FROM test_base32uint2 WHERE x = 3::int8;
+SELECT * FROM test_crockford2 WHERE x = 3::int8;
  x 
 ---
  3
@@ -7042,84 +7042,84 @@ SELECT * FROM test_base32uint2 WHERE x = 3::int8;
 
 RESET enable_seqscan;
 RESET enable_bitmapscan;
-CREATE TABLE test_base32uint4 (x base32uint4);
-CREATE UNIQUE INDEX test_base32uint4_x_key ON test_base32uint4 USING btree (x);
-INSERT INTO test_base32uint4 VALUES (1), (2), (3), (4), (5), (null);
+CREATE TABLE test_crockford4 (x crockford4);
+CREATE UNIQUE INDEX test_crockford4_x_key ON test_crockford4 USING btree (x);
+INSERT INTO test_crockford4 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::base32uint2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
-   Index Cond: (x = '3'::base32uint2)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::crockford2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::base32uint2;
+SELECT * FROM test_crockford4 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::base32uint4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
-   Index Cond: (x = '3'::base32uint4)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::crockford4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::base32uint4;
+SELECT * FROM test_crockford4 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::base32uint8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
-   Index Cond: (x = '3'::base32uint8)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::crockford8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::base32uint8;
+SELECT * FROM test_crockford4 WHERE x = 3::crockford8;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::int2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::int2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
    Index Cond: (x = '3'::smallint)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::int2;
+SELECT * FROM test_crockford4 WHERE x = 3::int2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::int4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::int4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
    Index Cond: (x = 3)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::int4;
+SELECT * FROM test_crockford4 WHERE x = 3::int4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint4 WHERE x = 3::int8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint4_x_key on test_base32uint4
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford4 WHERE x = 3::int8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford4_x_key on test_crockford4
    Index Cond: (x = '3'::bigint)
 (2 rows)
 
-SELECT * FROM test_base32uint4 WHERE x = 3::int8;
+SELECT * FROM test_crockford4 WHERE x = 3::int8;
  x 
 ---
  3
@@ -7127,84 +7127,84 @@ SELECT * FROM test_base32uint4 WHERE x = 3::int8;
 
 RESET enable_seqscan;
 RESET enable_bitmapscan;
-CREATE TABLE test_base32uint8 (x base32uint8);
-CREATE UNIQUE INDEX test_base32uint8_x_key ON test_base32uint8 USING btree (x);
-INSERT INTO test_base32uint8 VALUES (1), (2), (3), (4), (5), (null);
+CREATE TABLE test_crockford8 (x crockford8);
+CREATE UNIQUE INDEX test_crockford8_x_key ON test_crockford8 USING btree (x);
+INSERT INTO test_crockford8 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::base32uint2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
-   Index Cond: (x = '3'::base32uint2)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::crockford2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::base32uint2;
+SELECT * FROM test_crockford8 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::base32uint4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
-   Index Cond: (x = '3'::base32uint4)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::crockford4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::base32uint4;
+SELECT * FROM test_crockford8 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::base32uint8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
-   Index Cond: (x = '3'::base32uint8)
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::crockford8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::base32uint8;
+SELECT * FROM test_crockford8 WHERE x = 3::crockford8;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::int2;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::int2;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
    Index Cond: (x = '3'::smallint)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::int2;
+SELECT * FROM test_crockford8 WHERE x = 3::int2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::int4;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::int4;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
    Index Cond: (x = 3)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::int4;
+SELECT * FROM test_crockford8 WHERE x = 3::int4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_base32uint8 WHERE x = 3::int8;
-                            QUERY PLAN                            
-------------------------------------------------------------------
- Index Only Scan using test_base32uint8_x_key on test_base32uint8
+EXPLAIN (COSTS OFF) SELECT * FROM test_crockford8 WHERE x = 3::int8;
+                           QUERY PLAN                           
+----------------------------------------------------------------
+ Index Only Scan using test_crockford8_x_key on test_crockford8
    Index Cond: (x = '3'::bigint)
 (2 rows)
 
-SELECT * FROM test_base32uint8 WHERE x = 3::int8;
+SELECT * FROM test_crockford8 WHERE x = 3::int8;
  x 
 ---
  3
@@ -7217,40 +7217,40 @@ CREATE UNIQUE INDEX test_int2_x_key ON test_int2 USING btree (x);
 INSERT INTO test_int2 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::base32uint2;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::crockford2;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int2_x_key on test_int2
-   Index Cond: (x = '3'::base32uint2)
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_int2 WHERE x = 3::base32uint2;
+SELECT * FROM test_int2 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::base32uint4;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::crockford4;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int2_x_key on test_int2
-   Index Cond: (x = '3'::base32uint4)
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_int2 WHERE x = 3::base32uint4;
+SELECT * FROM test_int2 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::base32uint8;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int2 WHERE x = 3::crockford8;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int2_x_key on test_int2
-   Index Cond: (x = '3'::base32uint8)
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_int2 WHERE x = 3::base32uint8;
+SELECT * FROM test_int2 WHERE x = 3::crockford8;
  x 
 ---
  3
@@ -7263,40 +7263,40 @@ CREATE UNIQUE INDEX test_int4_x_key ON test_int4 USING btree (x);
 INSERT INTO test_int4 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::base32uint2;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::crockford2;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int4_x_key on test_int4
-   Index Cond: (x = '3'::base32uint2)
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_int4 WHERE x = 3::base32uint2;
+SELECT * FROM test_int4 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::base32uint4;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::crockford4;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int4_x_key on test_int4
-   Index Cond: (x = '3'::base32uint4)
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_int4 WHERE x = 3::base32uint4;
+SELECT * FROM test_int4 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::base32uint8;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int4 WHERE x = 3::crockford8;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int4_x_key on test_int4
-   Index Cond: (x = '3'::base32uint8)
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_int4 WHERE x = 3::base32uint8;
+SELECT * FROM test_int4 WHERE x = 3::crockford8;
  x 
 ---
  3
@@ -7309,40 +7309,40 @@ CREATE UNIQUE INDEX test_int8_x_key ON test_int8 USING btree (x);
 INSERT INTO test_int8 VALUES (1), (2), (3), (4), (5), (null);
 SET enable_seqscan = off;
 SET enable_bitmapscan = off;
-EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::base32uint2;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::crockford2;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int8_x_key on test_int8
-   Index Cond: (x = '3'::base32uint2)
+   Index Cond: (x = '3'::crockford2)
 (2 rows)
 
-SELECT * FROM test_int8 WHERE x = 3::base32uint2;
+SELECT * FROM test_int8 WHERE x = 3::crockford2;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::base32uint4;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::crockford4;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int8_x_key on test_int8
-   Index Cond: (x = '3'::base32uint4)
+   Index Cond: (x = '3'::crockford4)
 (2 rows)
 
-SELECT * FROM test_int8 WHERE x = 3::base32uint4;
+SELECT * FROM test_int8 WHERE x = 3::crockford4;
  x 
 ---
  3
 (1 row)
 
-EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::base32uint8;
+EXPLAIN (COSTS OFF) SELECT * FROM test_int8 WHERE x = 3::crockford8;
                      QUERY PLAN                     
 ----------------------------------------------------
  Index Only Scan using test_int8_x_key on test_int8
-   Index Cond: (x = '3'::base32uint8)
+   Index Cond: (x = '3'::crockford8)
 (2 rows)
 
-SELECT * FROM test_int8 WHERE x = 3::base32uint8;
+SELECT * FROM test_int8 WHERE x = 3::crockford8;
  x 
 ---
  3

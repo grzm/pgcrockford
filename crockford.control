@@ -1,4 +1,4 @@
 comment = 'Crockford Base32 integer type'
 default_version = 0
-module_pathname = '$libdir/base32'
+module_pathname = '$libdir/crockford'
 relocatable = true
