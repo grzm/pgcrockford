@@ -1,0 +1,55 @@
+CREATE SCHEMA store;
+CREATE SEQUENCE store.widgets_widget_id_seq;
+CREATE TABLE store.widgets (
+  widget_id crockford.crockford4 PRIMARY KEY
+    DEFAULT nextval('store.widgets_widget_id_seq'),
+  widget_name text NOT NULL UNIQUE
+);
+INSERT INTO store.widgets (widget_name)
+  SELECT 'widget' || n FROM generate_series(1,64) AS _ (n);
+SELECT * FROM store.widgets ORDER BY widget_id DESC LIMIT 10;
+ widget_id | widget_name 
+-----------+-------------
+ 20        | widget64
+ 1Z        | widget63
+ 1Y        | widget62
+ 1X        | widget61
+ 1W        | widget60
+ 1V        | widget59
+ 1T        | widget58
+ 1S        | widget57
+ 1R        | widget56
+ 1Q        | widget55
+(10 rows)
+
+CREATE SEQUENCE store.locations_location_id_seq;
+CREATE FUNCTION
+store.next_location_id()
+RETURNS crockford.crockford4
+STRICT LANGUAGE sql AS $body$
+SELECT ('S0000'::crockford.crockford4 + nextval('store.locations_location_id_seq'))::crockford.crockford4
+$body$;
+CREATE TABLE store.locations (
+  location_id crockford.crockford4 PRIMARY KEY
+    DEFAULT store.next_location_id(),
+  location_name text NOT NULL UNIQUE
+);
+INSERT INTO store.locations (location_name)
+  SELECT 'location' || n FROM generate_series(1,64) AS _ (n);
+SELECT * FROM store.locations ORDER BY location_id DESC LIMIT 10;
+ location_id | location_name 
+-------------+---------------
+ S0020       | location64
+ S001Z       | location63
+ S001Y       | location62
+ S001X       | location61
+ S001W       | location60
+ S001V       | location59
+ S001T       | location58
+ S001S       | location57
+ S001R       | location56
+ S001Q       | location55
+(10 rows)
+
+set client_min_messages to warning;
+drop schema store cascade;

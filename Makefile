@@ -13,7 +13,7 @@ MODULE_big = crockford
 OBJS = hash.o inout.o magic.o operators.o
 DATA_built = crockford--$(EXTVERSION).sql
 
-REGRESS = init hash inout operators drop
+REGRESS = init hash inout operators example drop
 REGRESS_OPTS = --inputdir=test
 
 EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql
