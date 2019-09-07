@@ -1,5 +1,5 @@
-#ifndef BASE32_H
-#define BASE32_H
+#ifndef CROCKFORD_H
+#define CROCKFORD_H
 
 #include "postgres.h"
 #include "utils/builtins.h"
@@ -39,6 +39,7 @@
 
 #define PG_GETARG_UINT64(n) DatumGetUInt64(PG_GETARG_DATUM(n))
 #define PG_RETURN_UINT64(x) return UInt64GetDatum(x)
-#endif // BASE32_H
 
-#define SAMESIGN(a,b)	(((a) < 0) == ((b) < 0))
+#define SAMESIGN(a,b)   (((a) < 0) == ((b) < 0))
+
+#endif // CROCKFORD_H
