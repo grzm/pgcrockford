@@ -1,7 +1,6 @@
 results
 *.so
 *--*.sql
-local.env
 regression.*
 *.o
 operators.c
