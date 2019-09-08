@@ -3,16 +3,16 @@
 CREATE TYPE crockford2;
 
 CREATE FUNCTION crockford2in(cstring) RETURNS crockford2
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford2in';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford2in';
 
 CREATE FUNCTION crockford2out(crockford2) RETURNS cstring
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford2out';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford2out';
 
 CREATE FUNCTION crockford2recv(internal) RETURNS crockford2
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford2recv';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford2recv';
 
 CREATE FUNCTION crockford2send(crockford2) RETURNS bytea
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford2send';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford2send';
 
 CREATE TYPE crockford2 (
   INPUT = crockford2in,
@@ -27,16 +27,16 @@ CREATE TYPE crockford2 (
 CREATE TYPE crockford4;
 
 CREATE FUNCTION crockford4in(cstring) RETURNS crockford4
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford4in';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford4in';
 
 CREATE FUNCTION crockford4out(crockford4) RETURNS cstring
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford4out';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford4out';
 
 CREATE FUNCTION crockford4recv(internal) RETURNS crockford4
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford4recv';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford4recv';
 
 CREATE FUNCTION crockford4send(crockford4) RETURNS bytea
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford4send';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford4send';
 
 CREATE TYPE crockford4 (
   INPUT = crockford4in,
@@ -51,16 +51,16 @@ CREATE TYPE crockford4 (
 CREATE TYPE crockford8;
 
 CREATE FUNCTION crockford8in(cstring) RETURNS crockford8
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford8in';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford8in';
 
 CREATE FUNCTION crockford8out(crockford8) RETURNS cstring
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford8out';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford8out';
 
 CREATE FUNCTION crockford8recv(internal) RETURNS crockford8
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford8recv';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford8recv';
 
 CREATE FUNCTION crockford8send(crockford8) RETURNS bytea
-IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford8send';
+IMMUTABLE STRICT LANGUAGE C AS 'MODULE_PATHNAME', 'crockford8send';
 
 CREATE TYPE crockford8 (
   INPUT = crockford8in,

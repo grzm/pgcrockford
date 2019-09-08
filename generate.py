@@ -153,7 +153,7 @@ def write_sql_function(f, funcname, argtypes, rettype, sql_funcname=None, strict
     if not sql_funcname:
         sql_funcname = funcname
     f.write("CREATE FUNCTION {sql_funcname}({argtypes}) RETURNS {rettype}"
-            " IMMUTABLE{strict} LANGUAGE C AS '$libdir/crockford', '{funcname}';\n\n"
+            " IMMUTABLE{strict} LANGUAGE C AS 'MODULE_PATHNAME', '{funcname}';\n\n"
             .format(sql_funcname=sql_funcname,
                     argtypes=', '.join([x for x in argtypes if x]),
                     rettype=rettype,
