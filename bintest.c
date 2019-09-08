@@ -77,7 +77,6 @@ int main(int argc, char **argv)
     for (int i = 0; i < 3; i++) {
         oid = (Oid*) PQgetvalue(res, 0, i);
         types[i] = ntohl(*oid);
-        fprintf(stdout, "col %d oid %u\n", i, ntohl(*oid));
     }
 
     PQclear(res);
