@@ -1,5 +1,6 @@
 #include <postgres.h>
 #include <fmgr.h>
+#include <libpq/pqformat.h>
 #include <utils/builtins.h>
 
 #include "crockford.h"
@@ -228,6 +229,25 @@ crockford2out(PG_FUNCTION_ARGS)
     PG_RETURN_CSTRING(crockford_utoa((uint64)PG_GETARG_UINT16(0)));
 }
 
+PG_FUNCTION_INFO_V1(crockford2recv);
+Datum
+crockford2recv(PG_FUNCTION_ARGS)
+{
+    StringInfo  buf = (StringInfo) PG_GETARG_POINTER(0);
+    PG_RETURN_UINT16((uint16) pq_getmsgint(buf, sizeof(uint16)));
+}
+
+PG_FUNCTION_INFO_V1(crockford2send);
+Datum
+crockford2send(PG_FUNCTION_ARGS)
+{
+    uint16      arg1 = PG_GETARG_UINT16(0);
+    StringInfoData buf;
+
+    pq_begintypsend(&buf);
+    pq_sendint16(&buf, arg1);
+    PG_RETURN_BYTEA_P(pq_endtypsend(&buf));
+}
 
 // crockford4
 
@@ -248,6 +268,26 @@ crockford4out(PG_FUNCTION_ARGS)
 }
 
 
+PG_FUNCTION_INFO_V1(crockford4recv);
+Datum
+crockford4recv(PG_FUNCTION_ARGS)
+{
+    StringInfo  buf = (StringInfo) PG_GETARG_POINTER(0);
+    PG_RETURN_UINT32((uint32) pq_getmsgint(buf, sizeof(uint32)));
+}
+
+PG_FUNCTION_INFO_V1(crockford4send);
+Datum
+crockford4send(PG_FUNCTION_ARGS)
+{
+    uint32      arg1 = PG_GETARG_UINT32(0);
+    StringInfoData buf;
+
+    pq_begintypsend(&buf);
+    pq_sendint32(&buf, arg1);
+    PG_RETURN_BYTEA_P(pq_endtypsend(&buf));
+}
+
 // crockford8
 
 PG_FUNCTION_INFO_V1(crockford8in);
@@ -264,4 +304,24 @@ Datum
 crockford8out(PG_FUNCTION_ARGS)
 {
     PG_RETURN_CSTRING(crockford_utoa(PG_GETARG_UINT64(0)));
+}
+
+PG_FUNCTION_INFO_V1(crockford8recv);
+Datum
+crockford8recv(PG_FUNCTION_ARGS)
+{
+    StringInfo  buf = (StringInfo) PG_GETARG_POINTER(0);
+    PG_RETURN_UINT64((uint16) pq_getmsgint64(buf));
+}
+
+PG_FUNCTION_INFO_V1(crockford8send);
+Datum
+crockford8send(PG_FUNCTION_ARGS)
+{
+    uint64      arg1 = PG_GETARG_UINT64(0);
+    StringInfoData buf;
+
+    pq_begintypsend(&buf);
+    pq_sendint64(&buf, arg1);
+    PG_RETURN_BYTEA_P(pq_endtypsend(&buf));
 }

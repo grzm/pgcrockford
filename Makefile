@@ -16,7 +16,7 @@ DATA_built = crockford--$(EXTVERSION).sql
 REGRESS = init hash inout operators example drop
 REGRESS_OPTS = --inputdir=test
 
-EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql
+EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql bintest
 
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
@@ -30,3 +30,9 @@ PYTHON = python
 
 operators.c operators.sql test/sql/operators.sql: generate.py
 	$(PYTHON) $< $(pg_version)
+
+pg_include := $(shell $(PG_CONFIG) --includedir)
+bintest:
+	cc -c -I$(pg_include) bintest.c
+	cc -o bintest bintest.o -L$(pg_include) -lpq
+	./bintest.sh

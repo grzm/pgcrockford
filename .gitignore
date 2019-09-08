@@ -6,3 +6,4 @@ regression.*
 operators.c
 operators.sql
 test/sql/operators.sql
+bintest
