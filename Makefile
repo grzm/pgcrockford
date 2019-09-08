@@ -40,4 +40,4 @@ bintest: bintest.c
 	cc -o bintest bintest.o -L$(pg_include) -lpq
 
 bincheck: bintest
-	./bintest.sh
+	./bincheck
