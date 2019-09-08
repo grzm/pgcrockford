@@ -7,7 +7,6 @@ new_types = ['crockford2', 'crockford4', 'crockford8']
 old_types = ['int2', 'int4', 'int8']
 
 comparison_ops = ['<', '<=', '=', '<>', '>=', '>']
-# arithmetic_ops = ['+', '-', '*', '/', '%']
 arithmetic_ops = ['+', '-']
 
 commutators = {
