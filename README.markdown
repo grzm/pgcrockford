@@ -1,6 +1,6 @@
 # pgcrockford - Crockford Base32 encoding for PostgreSQL unsigned integers
 
-The pgcrockford extension provides Base32 encoded integers as a
+The pgcrockford extension provides Base 32 encoded integers as a
 PostgreSQL base type. From [Douglas Crockford's
 requirements][crockford] for the specification, the encoding should
 
@@ -11,11 +11,17 @@ requirements][crockford] for the specification, the encoding should
 
 [crockford]: https://www.crockford.com/wrmg/crockford.html
 
-The motivation for pgcrockford is to provide a more humane display of
+The motivation for `pgcrockford` is to provide a more humane display of
 values used for surrogate keys while preserving the efficiency of an
 integer implementation: `crockford` values are represented as
 alpha-numeric strings while using unsigned integers for their
 implementation.
+
+## Releases and Dependencies
+
+Latest release: 0.9.0.
+
+Tested with PostgreSQL 11.
 
 ## Installation
 
@@ -35,7 +41,7 @@ CREATE EXTENSION crockford WITH SCHEMA crockford;
 ## Usage
 
 `pgcrockford` provides 6 base types: 2-byte, 4-byte, and 8-byte
-implementations both with and without checksums.
+implementations, both with and without checksums.
 
  - `crockford2` (2-byte)
  - `crockford4` (4-byte)
@@ -51,14 +57,14 @@ disk. The checksummed variants are provided for completeness and
 input-output validation.
 
 ```sql
-SELECT 10::crockford.crockford;
- A
- 
-SELECT '10'::crockford.crockford;
-10
+SELECT 10::crockford.crockford4;
+-- A
 
-SELECT 'A'::crockford.crockford + 1;
-B
+SELECT '10'::crockford.crockford4;
+-- 10
+
+SELECT ('A'::crockford.crockford4 + 1)::crockford.crockford4;
+-- B
 ```
 
 ```sql
@@ -68,7 +74,24 @@ CREATE TABLE store.widgets (
 );
 
 INSERT INTO store.widgets (widget_name)
-  VALUES (
+  SELECT 'widget' || n FROM generate_series(1,64) AS _ (n);
+
+SELECT * FROM store.widgets ORDER BY widget_id DESC LIMIT 10;
+/*
+ widget_id | widget_name
+-----------+-------------
+ 20        | widget64
+ 1Z        | widget63
+ 1Y        | widget62
+ 1X        | widget61
+ 1W        | widget60
+ 1V        | widget59
+ 1T        | widget58
+ 1S        | widget57
+ 1R        | widget56
+ 1Q        | widget55
+(10 rows)
+*/
 ```
 
 ### Getting funky with representation
@@ -98,14 +121,14 @@ $body$
 $body$;
 ```
 
-These functions will provide 33554431 unique values each
+These functions will provide 33,554,431 unique values each
 (`W00001`..`WZZZZZ` and `L00001`..`LZZZZZ` respectively) before
 encroaching on the encoded "type".
 
 
-## Thanks
+## Thanks!
 
-The pgcrockford extension takes inspiration from Peter Eisentraut's
+The `pgcrockford` extension takes inspiration from Peter Eisentraut's
 `[pguint][]` library, both for using unisigned integers as the
 underlying implementation and also for generating some of the code
 that implements it (see [generate.py][generate.py]).
