@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eu
+
+BASE_TAG="0.0.0"
+
+REVISION=$(git --no-replace-objects describe --match $BASE_TAG)
+
+REVISION_REGEX="^0\.0\.0-([0-9]+)-.*$"
+
+if [[ $REVISION =~ $REVISION_REGEX ]] ; then
+    REV=${BASH_REMATCH[1]}
+    echo $REV
+else
+    echo "could not match revs in $REVISION"
+    exit 1
+fi

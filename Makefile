@@ -7,9 +7,10 @@ pg_config_h := $(shell $(PG_CONFIG) --includedir-server)/pg_config.h
 use_float_byval := $(shell grep -q 'USE_FLOAT8_BYVAL 1' $(pg_config_h) && echo yes)
 comma = ,
 
+GIT_REVISION := $(shell bin/git-revision)
+
 EXTENSION = crockford
-EXTVERSION = $(shell grep default_version $(EXTENSION).control | \
-			   sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
+EXTVERSION = 0.8.$(GIT_REVISION)
 
 MODULE_big = crockford
 OBJS = hash.o inout.o magic.o operators.o
@@ -43,7 +44,9 @@ bincheck: bintest
 	./bincheck
 
 update-version-strings:
-	sed -E -i.bak \
-	-e 's~^(Latest release: *)[^ ]*~\1$(EXTVERSION)~' \
-	README.markdown
+	sed -E -i.bak -e 's~^(default_version = ) *[^ ]*~\1'"'$(EXTVERSION)'"'~' crockford.control
+	sed -E -i.bak -e 's~^(Latest release: *)[^ ]*~\1$(EXTVERSION)~' README.markdown
 	rm *.bak
+
+tag-release:
+	git tag -a "$(EXTVERSION)" -m "$(EXTVERSION)"
