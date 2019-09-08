@@ -1,2 +1,0 @@
-** DONE save input cstring when parsing for display in error
-** TODO figure out how to check upper bounds for uint64
