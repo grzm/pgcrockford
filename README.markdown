@@ -48,14 +48,13 @@ The `pgcrockford` extension provides 3 base types: 2-byte, 4-byte, and
  - `crockford8` (8-byte)
 
 ```sql
-SELECT 10::crockford.crockford4;
--- A
-
+-- interpret '10' as a crockford literal
 SELECT '10'::crockford.crockford4;
 -- 10
 
-SELECT ('A'::crockford.crockford4 + 1)::crockford.crockford4;
--- B
+-- cast integer 10 to crockford
+SELECT 10::crockford.crockford4;
+-- A
 ```
 
 ```sql
@@ -116,6 +115,51 @@ These functions will provide 33,554,431 unique values each
 (`W00001`..`WZZZZZ` and `L00001`..`LZZZZZ` respectively) before
 encroaching on the encoded "type".
 
+#### Operators and search_path
+
+If you load crockford into a schema that's not on the `search_path`,
+the crockford-specific operators won't be available without specifying
+the schema explicitly. This is [normal behavior for
+PostgreSQL][operator-schema], but may be suprising if you haven't seen
+it before.
+
+```sql
+
+SELECT 'A'::crockford.crockford4 + 1;
+-- 11
+
+-- specify the schema explicitly using OPERATOR
+SELECT 'A'::crockford.crockford4 OPERATOR(crockford.+) 1;
+-- B
+
+SET search_path TO crockford;
+
+SELECT 'A'::crockford4 + 1;
+-- B
+```
+
+If you're using crockford a lot, you'll likely want to either
+explicitly set the `search_path` to include the crockford extension
+schema or set the [default `search_path` for your
+database][alter-database]. For example,
+
+```sql
+ALTER ROLE grzm SET search_path TO 'crockford';
+```
+You can also [set `search_path` per role][alter-role]:
+
+
+```sql
+ALTER DATABASE crockford_test SET search_path to 'crockford';
+```
+
+The fine PostgreSQL manual includes more discussion of [schema
+usage][schema-usage].
+
+[operator-schema]: https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH
+[schema-usage]: https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATTERNS
+[alter-database]: https://www.postgresql.org/docs/current/sql-alterdatabase.html)
+[alter-role]: https://www.postgresql.org/docs/current/sql-alterrole.html
 
 ## Thanks!
 
