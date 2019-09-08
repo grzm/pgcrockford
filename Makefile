@@ -16,7 +16,7 @@ OBJS = hash.o inout.o magic.o operators.o
 DATA_built = crockford--$(EXTVERSION).sql
 
 REGRESS = init hash inout operators example drop
-REGRESS_OPTS = --inputdir=test
+REGRESS_OPTS = --inputdir=test --outputdir=test
 
 EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql bintest bintest.o
 
