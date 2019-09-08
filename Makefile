@@ -7,7 +7,7 @@ comma = ,
 
 EXTENSION = crockford
 EXTVERSION = $(shell grep default_version $(EXTENSION).control | \
-			   sed -e "s/default_version[[:space:]]*=[[:space:]]*\([[:digit:]][[:digit:]]*\)/\1/")
+			   sed -e "s/default_version[[:space:]]*=[[:space:]]*'\([^']*\)'/\1/")
 
 MODULE_big = crockford
 OBJS = hash.o inout.o magic.o operators.o
