@@ -1,7 +1,7 @@
 import re
 import sys
 
-search_path = 'crockford'
+test_search_path = 'crockford'
 
 new_types = ['crockford2', 'crockford4', 'crockford8']
 old_types = ['int2', 'int4', 'int8']
@@ -432,7 +432,7 @@ SELECT '-55'::{typ};
 SELECT ''::{typ};
 SELECT 'x'::{typ};
 SELECT '55 x'::{typ};
-""".format(typ=argtype,search_path=search_path))
+""".format(typ=argtype,search_path=test_search_path))
         if argtype in too_big:
             f_test_sql.write("SELECT '{num}'::{typ};\n".format(typ=argtype, num=max_values[argtype]))
             f_test_sql.write("SELECT '{num}'::{typ};\n".format(typ=argtype, num=too_big[argtype]))
