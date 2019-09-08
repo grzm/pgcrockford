@@ -40,21 +40,12 @@ CREATE EXTENSION crockford WITH SCHEMA crockford;
 
 ## Usage
 
-`pgcrockford` provides 6 base types: 2-byte, 4-byte, and 8-byte
-implementations, both with and without checksums.
+The `pgcrockford` extension provides 3 base types: 2-byte, 4-byte, and
+8-byte implementations.
 
  - `crockford2` (2-byte)
  - `crockford4` (4-byte)
  - `crockford8` (8-byte)
- - `crockford2_checksum` (2-byte with checksum)
- - `crockford4_checksum` (4-byte with checksum)
- - `crockford8_checksum` (8-byte with checksum)
-
-The underlying implementation is the same: only the representation is
-different. There's no storage advantage to using the non-checksummed
-variants for tables or the checksummed variants for safety on
-disk. The checksummed variants are provided for completeness and
-input-output validation.
 
 ```sql
 SELECT 10::crockford.crockford4;
