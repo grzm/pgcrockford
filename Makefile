@@ -1,4 +1,4 @@
-.PHONY: bintest update-version
+.PHONY: bintest update-version-file update-version-strings update-version tag-release
 
 PG_CONFIG = pg_config
 
@@ -8,9 +8,11 @@ use_float_byval := $(shell grep -q 'USE_FLOAT8_BYVAL 1' $(pg_config_h) && echo y
 comma = ,
 
 GIT_REVISION := $(shell bin/git-revision)
+GENERATED_VERSION = 0.8.$(GIT_REVISION)
+export GENERATED_VERSION
 
 EXTENSION = crockford
-EXTVERSION = 0.8.$(GIT_REVISION)
+EXTVERSION = $(shell cat VERSION)
 
 MODULE_big = crockford
 OBJS = hash.o inout.o magic.o operators.o
@@ -48,5 +50,10 @@ update-version-strings:
 	sed -E -i.bak -e 's~^(Latest release: *)[^ ]*~\1$(EXTVERSION)~' README.markdown
 	rm *.bak
 
-tag-release:
-	git tag -a "$(EXTVERSION)" -m "$(EXTVERSION)"
+update-version-file:
+	echo "$$GENERATED_VERSION" > VERSION
+
+update-version: update-version-file update-version-strings
+
+tag-version:
+	git tag -a "$(EXTVERSION)" -m "Version $(EXTVERSION)"
