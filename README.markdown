@@ -9,7 +9,7 @@ requirements][crockford] for the specification, the encoding should
 > - Be error resistant. Entering the symbols must not require keyboarding gymnastics.
 > - Be pronounceable. Humans should be able to accurately transmit the symbols to other humans using a telephone.
 
-[crockford]: https://www.crockford.com/wrmg/crockford.html
+[crockford]: https://www.crockford.com/base32.html
 
 The motivation for `pgcrockford` is to provide a more humane display of
 values used for surrogate keys while preserving the efficiency of an
@@ -164,17 +164,17 @@ usage][schema-usage].
 ## Thanks!
 
 The `pgcrockford` extension takes inspiration from Peter Eisentraut's
-[`pguint`][] library, both for using unisigned integers as the
+[`pguint`][pguint] library, both for using unisigned integers as the
 underlying implementation and also for generating some of the code
 that implements it (see [generate.py](generate.py)).
 
 I also found Manuel Kniep's series (parts [1][adjust-ext-1],
 [2][adjust-ext-2], and [3][adjust-ext-3], [4][adjust-ext-4], and
 [5][adjust-ext-5]) on writing PostgreSQL Extensions useful as
-well--and not only because it focused on writing [`pg-base36`][].
+well--and not only because it focused on writing
+[`pg-base36`][pg-base36].
 
 [pguint]: https://github.com/petere/pguint
-
 [adjust-ext-1]: http://big-elephants.com/2015-10/writing-postgres-extensions-part-i/
 [adjust-ext-2]: http://big-elephants.com/2015-10/writing-postgres-extensions-part-ii/
 [adjust-ext-3]: http://big-elephants.com/2015-10/writing-postgres-extensions-part-iii/
