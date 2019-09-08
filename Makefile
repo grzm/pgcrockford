@@ -1,3 +1,5 @@
+.PHONY: bintest
+
 PG_CONFIG = pg_config
 
 pg_version := $(word 2,$(shell $(PG_CONFIG) --version))
@@ -16,7 +18,7 @@ DATA_built = crockford--$(EXTVERSION).sql
 REGRESS = init hash inout operators example drop
 REGRESS_OPTS = --inputdir=test
 
-EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql bintest
+EXTRA_CLEAN += operators.c operators.sql test/sql/operators.sql bintest bintest.o
 
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
@@ -32,7 +34,10 @@ operators.c operators.sql test/sql/operators.sql: generate.py
 	$(PYTHON) $< $(pg_version)
 
 pg_include := $(shell $(PG_CONFIG) --includedir)
-bintest:
+
+bintest: bintest.c
 	cc -c -I$(pg_include) bintest.c
 	cc -o bintest bintest.o -L$(pg_include) -lpq
+
+bincheck: bintest
 	./bintest.sh
