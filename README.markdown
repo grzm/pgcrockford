@@ -19,7 +19,7 @@ implementation.
 
 ## Releases and Dependencies
 
-Latest release: 0.9.0
+Latest release: 0.8.34
 
 Tested with PostgreSQL 11.
 
