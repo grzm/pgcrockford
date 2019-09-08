@@ -50,7 +50,6 @@ CREATE TYPE crockford4 (
 
 CREATE TYPE crockford8;
 
-
 CREATE FUNCTION crockford8in(cstring) RETURNS crockford8
 IMMUTABLE STRICT LANGUAGE C AS '$libdir/crockford', 'crockford8in';
 
