@@ -96,7 +96,7 @@ surrogate keys or column naming conventions, you can leverage the
 alpha-numeric representation of the `crockford` types to encode the
 type in the id value.
 
-```
+```sql
 CREATE FUNCTION store.next_widget_id()
 RETURNS crockford.crockford4
 LANGUAGE sql AS
