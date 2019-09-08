@@ -1,4 +1,4 @@
-.PHONY: bintest
+.PHONY: bintest update-version
 
 PG_CONFIG = pg_config
 
@@ -41,3 +41,9 @@ bintest: bintest.c
 
 bincheck: bintest
 	./bincheck
+
+update-version-strings:
+	sed -E -i.bak \
+	-e 's~^(Latest release: *)[^ ]*~\1$(EXTVERSION)~' \
+	README.markdown
+	rm *.bak
