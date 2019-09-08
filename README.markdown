@@ -1,6 +1,8 @@
 # pgcrockford - Crockford Base32 encoding for PostgreSQL unsigned integers
 
-The pgcrockford extension provides Base32 encoded integers as a PostgreSQL base type. From [Douglas Crockford's requirements][crockford] for the specification, the encoding should
+The pgcrockford extension provides Base32 encoded integers as a
+PostgreSQL base type. From [Douglas Crockford's
+requirements][crockford] for the specification, the encoding should
 
 > - Be human readable and machine readable.
 > - Be compact. Humans have difficulty in manipulating long strings of arbitrary symbols.
@@ -32,7 +34,8 @@ CREATE EXTENSION crockford WITH SCHEMA crockford;
 
 ## Usage
 
-`pgcrockford` provides 6 base types: 2-byte, 4-byte, and 8-byte implementations both with and without checksums.
+`pgcrockford` provides 6 base types: 2-byte, 4-byte, and 8-byte
+implementations both with and without checksums.
 
  - `crockford2` (2-byte)
  - `crockford4` (4-byte)
